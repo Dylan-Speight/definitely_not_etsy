@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_045746) do
+ActiveRecord::Schema.define(version: 2019_05_03_050543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2019_05_03_045746) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "product_orders", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_product_orders_on_order_id"
+    t.index ["product_id"], name: "index_product_orders_on_product_id"
+  end
+
   create_table "products", id: :serial, force: :cascade do |t|
     t.integer "store_id"
     t.string "name"
@@ -30,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_05_03_045746) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "store_orders", force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_store_orders_on_order_id"
+    t.index ["store_id"], name: "index_store_orders_on_store_id"
   end
 
   create_table "stores", id: :serial, force: :cascade do |t|
