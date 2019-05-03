@@ -7,9 +7,37 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Font import -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400" rel="stylesheet">
+    <!-- Calling in the Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
 
   <body>
+
+    <div class="nav-wrapper">
+        <header>
+            <nav class="nav-left">
+                <div class="nav-link">Home</div>
+                <div class="nav-link">Become a seller</div>
+                <div class="nav-link">Products</div>
+            </nav>
+            <div class="logo">
+                <img>
+            </div>
+            <nav class="nav-right">
+                <span class="icon-user"></span>
+                <div class="nav-link">Profile</div>
+                <div class="nav-link">Your cart</div>
+                <div class="nav-link">Your purchases</div>
+            </nav>
+        </header>
+    </div>
+
     <%= yield %>
+
+    <footer>
+    </footer>
+
   </body>
 </html>

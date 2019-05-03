@@ -1,15 +1,48 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+html, body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+div, nav, footer {
+  display: block;
+}
+
+.nav-wrapper {
+  min-height: 100px;
+  background-color: #000000;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #fbeee4;
+}
+
+header .nav-left,
+header .nav-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .nav-right {
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-left,
+  .nav-right {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+/*# sourceMappingURL=application.css.map */

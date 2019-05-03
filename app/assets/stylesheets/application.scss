@@ -1,0 +1,44 @@
+// Setting defaults and over-riding user agent style-sheets
+
+html, body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+div, nav, footer {
+    display: block;
+}
+
+// Nav
+
+.nav-wrapper {
+    min-height: 100px;
+    background-color: #000000;
+}
+
+header {
+    display: flex;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #fbeee4;
+    
+    .nav-left,
+    .nav-right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-right {
+        margin-left: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-left,
+    .nav-right {
+        flex-direction: row;
+    }
+}
+
+
+
