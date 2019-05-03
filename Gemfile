@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.6"
 
 gem "rolify", "~> 5.2"
+
+gem "rspec", "~> 3.8"
