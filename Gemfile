@@ -68,3 +68,8 @@ gem "devise", "~> 4.6"
 gem "rolify", "~> 5.2"
 
 gem "rspec", "~> 3.8"
+
+gem "cloudinary"
+gem "activestorage-cloudinary-service", "~> 0.2.3"
+
+gem 'carrierwave', '~> 1.0'
