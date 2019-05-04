@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_030529) do
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "username"
     t.string "email_address"
     t.string "address"
