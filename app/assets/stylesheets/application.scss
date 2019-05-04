@@ -26,9 +26,12 @@ header {
     font-weight: 300;
     color: #fbeee4;
     justify-content: space-between;
+    flex-wrap: wrap;
     
     .nav-left,
     .nav-right {
+        order: 4;
+        width: 100vw;
         display: flex;
         flex-direction: column;
     }
@@ -48,7 +51,6 @@ header {
     .nav-toggle-left,
     .nav-toggle-right {
         display: flex;
-        height: 100px;
         width: 90px;
         font-size: 2rem;
         font-weight: 200;

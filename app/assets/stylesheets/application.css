@@ -24,10 +24,16 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 header .nav-left,
 header .nav-right {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,7 +60,6 @@ header .nav-toggle-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100px;
   width: 90px;
   font-size: 2rem;
   font-weight: 200;
