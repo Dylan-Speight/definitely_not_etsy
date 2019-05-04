@@ -1,9 +1,10 @@
 html, body {
   margin: 0 auto;
   padding: 0;
+  font-size: 16px;
 }
 
-div, nav, footer {
+div, nav, footer, p {
   display: block;
 }
 
@@ -16,9 +17,13 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 100px;
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   font-weight: 300;
   color: #fbeee4;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 header .nav-left,
@@ -32,17 +37,102 @@ header .nav-right {
           flex-direction: column;
 }
 
-header .nav-right {
+header .nav-link-left,
+header .nav-link-right {
+  display: none;
+}
+
+header .nav-link-left.open,
+header .nav-link-right.open {
+  display: block;
+  float: none;
+  text-align: left;
+}
+
+header .nav-toggle-left,
+header .nav-toggle-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  width: 90px;
+  font-size: 2rem;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+header .nav-toggle-left .far,
+header .nav-toggle-left .fas,
+header .nav-toggle-right .far,
+header .nav-toggle-right .fas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .nav-toggle-left {
+  background-color: #35d0f0;
+}
+
+header .nav-toggle-right {
+  background-color: #ed73e1;
   margin-left: auto;
 }
 
-@media only screen and (max-width: 768px) {
-  .nav-left,
-  .nav-right {
+header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+}
+
+header .logo p {
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+@media only screen and (min-device-width: 768px) {
+  header {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  header .nav-left,
+  header .nav-right {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  header .nav-left {
+    background-color: #35d0f0;
+  }
+  header .nav-right {
+    margin-left: auto;
+    background-color: #ed73e1;
+  }
+  header .nav-toggle-left,
+  header .nav-toggle-right {
+    display: none;
+  }
+  header .nav-toggle-left i,
+  header .nav-toggle-right i {
+    display: none;
+  }
+  header .nav-link-left,
+  header .nav-link-right {
+    display: block;
   }
 }
 /*# sourceMappingURL=application.css.map */

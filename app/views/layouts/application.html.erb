@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>DefinitelyNotEtsy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,27 +19,33 @@
 
     <div class="nav-wrapper">
         <header>
+            <div class="nav-toggle-left" onclick="toggleLeft()">
+              <i class="fas fa-bars"></i>
+            </div>
             <nav class="nav-left">
-                <div class="nav-link">Home</div>
-                <div class="nav-link">Become a seller</div>
-                <div class="nav-link">Products</div>
+                <div class="nav-link-left">Home</div>
+                <div class="nav-link-left">Become a seller</div>
+                <div class="nav-link-left">Products</div>
             </nav>
             <div class="logo">
-                <img>
+                <p>Itzy</p>
             </div>
+            <div class="nav-toggle-right" onclick="toggleRight()">
+              <i class="far fa-user"></i>
+            </div>
+            <div class="cart">
+              <a class="">
             <nav class="nav-right">
                 <span class="icon-user"></span>
-                <div class="nav-link">Profile</div>
-                <div class="nav-link">Your cart</div>
-                <div class="nav-link">Your purchases</div>
+                <div id="profile" class="nav-link-right">Profile</div>
+                <div class="nav-link-right">Your cart</div>
+                <div class="nav-link-right">Your purchases</div>
             </nav>
         </header>
     </div>
 
     <%= yield %>
 
-    <footer>
-    </footer>
 
   </body>
 </html>

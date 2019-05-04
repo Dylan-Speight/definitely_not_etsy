@@ -14,3 +14,39 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function toggleLeft() {
+    var x = document.getElementsByClassName("nav-toggle-left");
+    var y = document.getElementsByClassName("nav-link-left");
+    if (x[0].className === "nav-toggle-left") {
+        x[0].className = "nav-toggle-left open"
+        var yLength = y.length;
+        while (yLength--) {
+            y[yLength].className = "nav-link-left open";
+        } 
+    } else {
+        x[0].className = "nav-toggle-left";
+        var yLength = y.length;
+        while (yLength --) {
+            y[yLength].className = "nav-link-left";
+        }
+    }
+}
+
+function toggleRight() {
+    var x = document.getElementsByClassName("nav-toggle-right");
+    var y = document.getElementsByClassName("nav-link-right");
+    if (x[0].className === "nav-toggle-right") {
+        x[0].className = "nav-toggle-right open"
+        var yLength = y.length;
+        while (yLength--) {
+            y[yLength].className = "nav-link-right open";
+        } 
+    } else {
+        x[0].className = "nav-toggle-right";
+        var yLength = y.length;
+        while (yLength --) {
+            y[yLength].className = "nav-link-right";
+        }
+    }
+}

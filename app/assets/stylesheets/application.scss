@@ -3,13 +3,16 @@
 html, body {
     margin: 0 auto;
     padding: 0;
+    font-size: 16px;
 }
 
-div, nav, footer {
+div, nav, footer, p {
     display: block;
 }
 
-// Nav
+// NAV ------------------------------------
+
+// MOBILE
 
 .nav-wrapper {
     min-height: 100px;
@@ -18,9 +21,11 @@ div, nav, footer {
 
 header {
     display: flex;
+    min-height: 100px;
     font-family: 'Work Sans', Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #fbeee4;
+    justify-content: space-between;
     
     .nav-left,
     .nav-right {
@@ -28,15 +33,91 @@ header {
         flex-direction: column;
     }
 
-    .nav-right {
+    .nav-link-left,
+    .nav-link-right {
+        display: none;
+    }
+
+    .nav-link-left.open,
+    .nav-link-right.open {
+        display: block;
+        float: none;
+        text-align: left;
+    }
+
+    .nav-toggle-left,
+    .nav-toggle-right {
+        display: flex;
+        height: 100px;
+        width: 90px;
+        font-size: 2rem;
+        font-weight: 200;
+        cursor: pointer;
+
+        .far,
+        .fas {
+            display: flex;
+            width: 100%;
+            align-self: center;
+            justify-content: center;
+        }
+    }
+
+    .nav-toggle-left {
+        background-color: #35d0f0;
+    }
+
+    .nav-toggle-right {
+        background-color: #ed73e1;
         margin-left: auto;
+    }
+
+    .logo {
+        display: flex;
+        margin-left: auto;
+
+        p {
+        font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 2rem; 
+        align-self: center; 
+        }
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .nav-left,
-    .nav-right {
+// TABLET AND LARGER
+
+@media only screen and (min-device-width: 768px) {
+    header {
         flex-direction: row;
+
+        .nav-left,
+        .nav-right {
+            flex-direction: row;
+        }
+
+        .nav-left {
+            background-color: #35d0f0;
+        }
+    
+        .nav-right {
+            margin-left: auto;
+            background-color: #ed73e1;
+        }
+
+        .nav-toggle-left,
+        .nav-toggle-right {
+            display: none;
+
+            i {
+                display: none;
+            }
+        }
+
+        .nav-link-left,
+        .nav-link-right {
+            display: block;
+        }
     }
 }
 
