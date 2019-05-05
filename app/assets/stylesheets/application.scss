@@ -34,6 +34,7 @@ header {
         width: 100vw;
         display: flex;
         flex-direction: column;
+        margin-left: auto;
     }
 
     .nav-link-left,
@@ -45,7 +46,7 @@ header {
     .nav-link-right.open {
         display: block;
         float: none;
-        text-align: left;
+        text-align: center;
     }
 
     .nav-toggle-left,

@@ -41,6 +41,7 @@ header .nav-right {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: auto;
 }
 
 header .nav-link-left,
@@ -52,7 +53,7 @@ header .nav-link-left.open,
 header .nav-link-right.open {
   display: block;
   float: none;
-  text-align: left;
+  text-align: center;
 }
 
 header .nav-toggle-left,

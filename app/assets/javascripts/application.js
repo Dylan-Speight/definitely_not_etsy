@@ -15,38 +15,48 @@
 //= require turbolinks
 //= require_tree .
 
+
 function toggleLeft() {
-    var x = document.getElementsByClassName("nav-toggle-left");
-    var y = document.getElementsByClassName("nav-link-left");
-    if (x[0].className === "nav-toggle-left") {
-        x[0].className = "nav-toggle-left open"
-        var yLength = y.length;
-        while (yLength--) {
-            y[yLength].className = "nav-link-left open";
+    var leftLinks = document.getElementsByClassName("nav-link-left");
+    var rightLinks = document.getElementsByClassName("nav-link-right open");
+    if (rightLinks.length > 0) {
+        var rightLinksLength = rightLinks.length;
+        while (rightLinksLength--) {
+            rightLinks[rightLinksLength].className = "nav-link-right"
+        }
+    }
+    if (leftLinks[0].className === "nav-link-left") {
+        var leftLinksLength = leftLinks.length;
+        while (leftLinksLength--) {
+            leftLinks[leftLinksLength].className = "nav-link-left open";
         } 
     } else {
-        x[0].className = "nav-toggle-left";
-        var yLength = y.length;
-        while (yLength --) {
-            y[yLength].className = "nav-link-left";
+        var leftLinksLength = leftLinks.length;
+        while (leftLinksLength--) {
+            leftLinks[leftLinksLength].className = "nav-link-left";
         }
     }
 }
 
+
 function toggleRight() {
-    var x = document.getElementsByClassName("nav-toggle-right");
-    var y = document.getElementsByClassName("nav-link-right");
-    if (x[0].className === "nav-toggle-right") {
-        x[0].className = "nav-toggle-right open"
-        var yLength = y.length;
-        while (yLength--) {
-            y[yLength].className = "nav-link-right open";
+    var rightLinks = document.getElementsByClassName("nav-link-right");
+    var leftLinks = document.getElementsByClassName("nav-link-left open");
+    if (leftLinks.length > 0) {
+        var leftLinksLength = leftLinks.length;
+        while (leftLinksLength--) {
+            leftLinks[leftLinksLength].className = "nav-link-left"
+        }
+    }
+    if (rightLinks[0].className === "nav-link-right") {
+        var rightLinksLength = rightLinks.length;
+        while (rightLinksLength--) {
+            rightLinks[rightLinksLength].className = "nav-link-right open";
         } 
     } else {
-        x[0].className = "nav-toggle-right";
-        var yLength = y.length;
-        while (yLength --) {
-            y[yLength].className = "nav-link-right";
+        var rightLinksLength = rightLinks.length;
+        while (rightLinksLength--) {
+            rightLinks[rightLinksLength].className = "nav-link-right";
         }
     }
 }
