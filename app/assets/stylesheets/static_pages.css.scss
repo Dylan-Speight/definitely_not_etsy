@@ -1,0 +1,31 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+    .hero-wrap{
+        height: 100vw;
+        width: 100vw;
+        background: image-url("hero-bg.jpg") no-repeat center;
+        background-size: cover;
+    
+        .hero {
+            padding-top: 100px;
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h5 {
+                margin-bottom: 5px;
+            }
+
+            p {
+                line-height: 1em; 
+                color: #fbeee4;
+                font-family: "Work Sans", Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+        }
+    }
+}

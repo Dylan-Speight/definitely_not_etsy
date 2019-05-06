@@ -1,144 +1,15 @@
-html, body {
-  margin: 0 auto;
-  padding: 0;
-  font-size: 16px;
-}
-
-div, nav, footer, p {
-  display: block;
-}
-
-.nav-wrapper {
-  min-height: 100px;
-  background-color: #000000;
-}
-
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 100px;
-  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  color: #fbeee4;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-header .nav-left,
-header .nav-right {
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
-  width: 100vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-left: auto;
-}
-
-header .nav-link-left,
-header .nav-link-right {
-  display: none;
-}
-
-header .nav-link-left.open,
-header .nav-link-right.open {
-  display: block;
-  float: none;
-  text-align: center;
-}
-
-header .nav-toggle-left,
-header .nav-toggle-right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 90px;
-  font-size: 2rem;
-  font-weight: 200;
-  cursor: pointer;
-}
-
-header .nav-toggle-left .far,
-header .nav-toggle-left .fas,
-header .nav-toggle-right .far,
-header .nav-toggle-right .fas {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -ms-flex-item-align: center;
-      align-self: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-header .nav-toggle-left {
-  background-color: #35d0f0;
-}
-
-header .nav-toggle-right {
-  background-color: #ed73e1;
-  margin-left: auto;
-}
-
-header .logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: auto;
-}
-
-header .logo p {
-  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 2rem;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-@media only screen and (min-device-width: 768px) {
-  header {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  header .nav-left,
-  header .nav-right {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  header .nav-left {
-    background-color: #35d0f0;
-  }
-  header .nav-right {
-    margin-left: auto;
-    background-color: #ed73e1;
-  }
-  header .nav-toggle-left,
-  header .nav-toggle-right {
-    display: none;
-  }
-  header .nav-toggle-left i,
-  header .nav-toggle-right i {
-    display: none;
-  }
-  header .nav-link-left,
-  header .nav-link-right {
-    display: block;
-  }
-}
-/*# sourceMappingURL=application.css.map */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
