@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+  get 'welcome/account'
+  get 'welcome/browse'
+  get 'welcome/my_store'
   resources :store_orders
   resources :product_orders
   resources :orders
