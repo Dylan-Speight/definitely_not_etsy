@@ -20,16 +20,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: definitely_not_etsy_development
-
-  # The specified database role being used to connect to postgres.
-  # To create additional roles in postgres see `$ createuser --help`.
-  # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user that initialized the database.
-  username: <%= ENV['DATABASE_USERNAME'] %>
+  username: postgres
 
   # The password associated with the postgres role (username).
   password: <%= ENV['DATABASE_PASSWORD'] %>
@@ -42,6 +33,15 @@ development:
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
   port: 5432
+
+development:
+  <<: *default
+  database: definitely_not_etsy_development
+
+  # The specified database role being used to connect to postgres.
+  # To create additional roles in postgres see `$ createuser --help`.
+  # When left blank, postgres will use the default role. This is
+  # the same name as the operating system user that initialized the database.
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: definitely_not_etsy_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: definitely_not_etsy
+  password: <%= ENV['DEFINITELY_NOT_ETSY_DATABASE_PASSWORD'] %>
