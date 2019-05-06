@@ -22,8 +22,9 @@ h6 {
   text-transform: uppercase;
 }
 
-a {
+a:link, a:visited, a:hover, a:active {
     color: #fbeee4;
+    text-decoration: none;
 }
 
 button {

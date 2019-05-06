@@ -8,6 +8,22 @@ input {
     border-color: #fbeee4;
 }
 
+.button {
+    display: block;
+    height: 50px;
+    width: 280px;
+    margin: 0 auto;
+    line-height: 50px;
+    border-radius: 4px;
+    border-color: #ed73e1;
+    text-align: center;
+    background-color: #ed73e1;
+    color: #fbeee4;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
 // HERO
 
 a {
@@ -46,7 +62,7 @@ a {
                 position: relative;
                 left: 0;
                 bottom: -115px;
-                background: #2b373a;
+                background: #2b373a image-url("promo1_texture.png");
                 background-size: cover;
                 border-radius: 4px;
                 border-bottom-left-radius: 0px;
@@ -66,22 +82,6 @@ a {
                         line-height: 50px;
                         font-size: 0.8rem;
                         border-radius: 4px; 
-                    }
-
-                    .button {
-                        display: block;
-                        height: 50px;
-                        width: 280px;
-                        margin: 0 auto;
-                        line-height: 50px;
-                        border-radius: 4px;
-                        border-color: #ed73e1;
-                        text-align: center;
-                        background-color: #ed73e1;
-                        color: #fbeee4;
-                        font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-                        font-size: 1.25rem;
-                        font-weight: 400;
                     }
                 }     
             }
@@ -148,5 +148,59 @@ a {
             }
         }
     }
+}
 
+// PROMOTIONS
+
+.promo-wrap {
+    display: flex;
+    flex-direction: column;
+    
+    .promo-banner {
+        min-height: 310px;
+        width: 100%;
+        padding-top: 50px;
+
+        .fas {
+            position: relative;
+            width: 100%;
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 35px;
+            font-size: 3rem;
+        }
+
+        h5 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+    }
+
+    .promo-banner.primary {
+        background: #2b373a image-url("promo1_texture.png");
+        
+        .fas {
+            color: #ed73e1;
+        }
+
+        .button {
+            background-color: #ed73e1;
+        }
+    }
+
+    .promo-banner.secondary {
+        background: #71def4 image-url("promo2_texture.png");
+
+        .fas {
+            color: #fbeee4;
+        }
+
+        .button {
+            background-color: #2b373a;
+        }
+    }
 }
