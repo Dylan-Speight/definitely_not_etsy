@@ -8,6 +8,8 @@ input {
     border-color: #fbeee4;
 }
 
+// HERO
+
 a {
     .hero-wrap{
         min-height: 544px;
@@ -16,31 +18,34 @@ a {
         background-size: cover;
     
         .hero {
-            padding-top: 175px;
+            padding-top: 125px;
             
             h1 {
                 font-size: 2.5rem;
+                padding-bottom: 20px;
             }
             
             h5 {
-                margin-bottom: 5px;
+                margin-bottom: 20px;
             }
 
             p {
-                line-height: 1em; 
+                width: 370px;
+                line-height: 1.6em; 
                 color: #fbeee4;
                 font-family: "Work Sans", Arial, Helvetica, sans-serif;
                 text-align: center;
+                margin: 0 auto;
             }
 
             .search-widget {
-                height: 170px;
+                height: 142px;
                 width: 100%;
                 padding: 28px 0 0;
                 margin-left: 0;
-                position: absolute;
+                position: relative;
                 left: 0;
-                bottom: 50px;
+                bottom: -81px;
                 background: #2b373a;
                 background-size: cover;
                 border-radius: 4px;
@@ -64,15 +69,16 @@ a {
                     }
 
                     .button {
+                        display: block;
                         height: 50px;
-                        width: 100%;
-                        position: relative;
+                        width: 280px;
                         margin: 0 auto;
                         line-height: 50px;
                         border-radius: 4px;
+                        border-color: #ed73e1;
                         text-align: center;
-                        background-color: #fbeee4;
-                        color: #2b373a;
+                        background-color: #ed73e1;
+                        color: #fbeee4;
                         font-family: 'Work Sans', Arial, Helvetica, sans-serif;
                         font-size: 1.25rem;
                         font-weight: 400;
@@ -89,4 +95,58 @@ a {
         width: 95%;
         margin: 0 auto;
     }
+}
+
+// SERVICES
+
+.services-wrap {
+    background-color: #ffffff;
+    padding-top: 57px;
+
+    .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 60px;
+        max-width: 1170px;
+        width: 95%;
+        margin: 0 auto;
+        min-height: 500px;
+
+        .service-item {
+            display: block;
+            width: 350px;
+
+            .service-icon {
+                margin: 0 auto;
+                height: 120px;
+                width: 120px;
+                border-radius: 50%;
+                background-color: #2b373a;
+                color: #71def4;
+                font-size: 3.5rem;
+
+                .fas {
+                    position: relative;
+                    top: 25%;
+                    height: 120px;
+                    width: 120px;
+                    text-align: center;
+                }
+            }
+
+            .service-text {
+                width: 90%;
+                margin: 0 auto;
+                padding-top: 15px;
+                text-align: center;
+                
+                h3, p {
+                    color: #2b373a;
+                    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+    }
+
 }
