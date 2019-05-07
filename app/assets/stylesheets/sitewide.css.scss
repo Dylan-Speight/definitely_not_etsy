@@ -170,6 +170,7 @@ footer {
         padding-bottom: 58px;
 
         .company-info {
+            align-self: center;
             width: 270px;
             padding-top: 58px;
             margin-right: 30px;
@@ -269,6 +270,10 @@ footer {
         .footer-wrap {
           flex-direction: column;
           padding-left: 58px;
+
+          .company-info {
+              width: 80%;
+          }
           
           .footer-links-wrap {
               display: flex;
