@@ -47,118 +47,120 @@ button {
 .nav-wrapper {
     min-height: 100px;
     background-color: #2b373a;
-}
 
-header {
-    display: flex;
-    min-height: 100px;
-    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-    font-weight: 300;
-    color: #fbeee4;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    
-    .nav-left,
-    .nav-right {
-        order: 4;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        margin-left: auto;
-    }
-
-    .nav-link-left,
-    .nav-link-right {
-        display: none;
-        color: #fbeee4;
-    }
-
-    .nav-link-left.open,
-    .nav-link-right.open {
-        width: 100vw;
-        border-bottom: 2px solid #fbeee4;
-        font-size: 1.5rem;
-        padding: 1rem 0;
-        display: block;
-        text-align: center;
-    }
-
-    .nav-link-left.open:nth-of-type(1),
-    .nav-link-right.open:nth-of-type(1) {
-        border-top: 2px solid #fbeee4;
-    }
-
-
-    .nav-toggle-left,
-    .nav-toggle-right {
+    header {
         display: flex;
         min-height: 100px;
-        width: 90px;
-        font-size: 2rem;
-        font-weight: 200;
-        cursor: pointer;
-
-        .far,
-        .fas {
-            display: flex;
-            width: 100%;
-            align-self: center;
-            justify-content: center;
-        }
-    }
-
-    .nav-toggle-left {
-        background-color: #71def4;
-    }
-
-    .nav-toggle-right {
-        background-color: #ed73e1;
-        margin-left: auto;
-    }
-
-    .logo {
-        display: flex;
-        margin-left: auto;
+        font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        color: #fbeee4;
+        justify-content: space-between;
+        flex-wrap: wrap;
         
-        .fas.fa-store {
-            font-size: 3rem;
-            align-self: center;
-        }
-    }
-}
-
-// TABLET AND LARGER
-
-@media only screen and (min-device-width: 768px) {
-    header {
-        flex-direction: row;
-
         .nav-left,
         .nav-right {
-            flex-direction: row;
-        }
-
-        .nav-left {
-            background-color: #71def4;
-        }
-    
-        .nav-right {
+            order: 4;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
             margin-left: auto;
-            background-color: #ed73e1;
-        }
-
-        .nav-toggle-left,
-        .nav-toggle-right {
-            display: none;
-
-            i {
-                display: none;
-            }
         }
 
         .nav-link-left,
         .nav-link-right {
+            display: none;
+            color: #fbeee4;
+        }
+
+        .nav-link-left.open,
+        .nav-link-right.open {
+            width: 100vw;
+            border-bottom: 2px solid #fbeee4;
+            font-size: 1.5rem;
+            padding: 1rem 0;
             display: block;
+            text-align: center;
+        }
+
+        .nav-link-left.open:nth-of-type(1),
+        .nav-link-right.open:nth-of-type(1) {
+            border-top: 2px solid #fbeee4;
+        }
+
+
+        .nav-toggle-left,
+        .nav-toggle-right {
+            display: flex;
+            min-height: 100px;
+            width: 90px;
+            font-size: 2rem;
+            font-weight: 200;
+            cursor: pointer;
+
+            .far,
+            .fas {
+                display: flex;
+                width: 100%;
+                align-self: center;
+                justify-content: center;
+            }
+        }
+
+        .nav-toggle-left {
+            background-color: #71def4;
+        }
+
+        .nav-toggle-right {
+            background-color: #ed73e1;
+            margin-left: auto;
+        }
+
+        .logo {
+            display: flex;
+            margin-left: auto;
+            
+            .fas.fa-store {
+                font-size: 3rem;
+                align-self: center;
+            }
+        }
+    }
+
+    // TABLET AND LARGER
+
+    @media only screen and (min-device-width: 768px) {
+        .nav-wrap {
+            header {
+                flex-direction: row;
+
+                .nav-left,
+                .nav-right {
+                    flex-direction: row;
+                }
+
+                .nav-left {
+                    background-color: #71def4;
+                }
+            
+                .nav-right {
+                    margin-left: auto;
+                    background-color: #ed73e1;
+                }
+
+                .nav-toggle-left,
+                .nav-toggle-right {
+                    display: none;
+
+                    i {
+                        display: none;
+                    }
+                }
+
+                .nav-link-left,
+                .nav-link-right {
+                    display: block;
+                }
+            }
         }
     }
 }
