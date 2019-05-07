@@ -73,3 +73,6 @@ gem "cloudinary"
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 
 gem 'carrierwave', '~> 1.0'
+
+
+gem "bootstrap", "~> 4.3"

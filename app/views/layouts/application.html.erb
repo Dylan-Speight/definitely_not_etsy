@@ -23,9 +23,15 @@
               <i class="fas fa-bars"></i>
             </div>
             <nav class="nav-left">
-                <div class="nav-link-left"><a href='/'>Home</div>
-                <div class="nav-link-left"><a href='/stores/new'>Become a Seller</a></div>
-                <div class="nav-link-left"><a href='/products'>Products</a></div>
+                <%= link_to root_path do %>
+                <div class="nav-link-left">Home</div>
+                <% end %>
+                <%= link_to stores_path do %>
+                  <div class="nav-link-left">Your Store</div>
+                <% end %>
+                <%= link_to products_path do%>
+                <div class="nav-link-left">Products</div>
+                <% end %>
             </nav>
             <div class="logo">
                 <a href="/"><i class="fas fa-store"></i></a>
@@ -39,27 +45,21 @@
                  <span class="icon-user"></span>
                  <div id="profile" class="nav-link-right">Profile</div>
                  <div class="nav-link-right">Your Cart</div>
-                 <div class="nav-link-right"><a href='/product_orders'>Your orders</a></div>
+                 <%= link_to product_orders_path do %>
+                 <div class="nav-link-right">Your Orders</div>
+                 <% end %>
+                 
+                    <% if current_user %>
+                      <div class="nav-link-right" ><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+                    <% else %>
+                      <div class="nav-link-right" ><%= link_to "Sign Up", new_user_registration_path %></div>
+                      <div class="nav-link-right" ><%= link_to "Sign In", new_user_session_path %></div>
+                    <% end %>
+                  
              </nav>
         </header>
     </div>
 
-    <% if flash[:notice] %>
-	<div class="alert alert-success">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<%= flash[:notice] %>
-	</div>
-<% elsif flash[:error] %>
-	<div class="alert alert-error">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<%= flash[:error] %>
-	</div>
-<% elsif flash[:alert] %>
-	<div class="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<%= flash[:alert] %>
-	</div>
-<% end %>
 
     <%= yield %>
 
