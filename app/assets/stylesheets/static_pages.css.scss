@@ -27,70 +27,70 @@ input {
 // HERO
 
 .hero-wrap{
-        min-height: 590px;
-        width: 100vw;
-        background: image-url("hero-bg.jpg") no-repeat center;
-        background-size: cover;
-    
-        .hero {
-            padding-top: 150px;
-            
-            h1 {
-                font-size: 2.5rem;
-                padding-bottom: 20px;
-            }
-            
-            h5 {
-                margin-bottom: 20px;
-            }
+    min-height: 590px;
+    width: 100vw;
+    background: image-url("hero-bg.jpg") no-repeat center;
+    background-size: cover;
 
-            p {
-                width: 370px;
-                line-height: 1.6em; 
-                color: #fbeee4;
-                font-family: "Work Sans", Arial, Helvetica, sans-serif;
-                text-align: center;
-                margin: 0 auto;
-            }
+    .hero {
+        padding-top: 150px;
+        
+        h1 {
+            font-size: 2.5rem;
+            padding-bottom: 20px;
+        }
+        
+        h5 {
+            margin-bottom: 20px;
+        }
 
-            .search-widget {
-                height: 142px;
-                width: 100%;
-                padding: 28px 0 0;
-                margin: 0 auto;
-                position: relative;
-                bottom: -225px;
-                background: image-url("searchbar_texture.png") no-repeat center, linear-gradient(to right, #71def4, #ed73e1);
-                background-size: cover;
-                border-radius: 4px;
-                border-bottom-left-radius: 0px;
-                border-bottom-right-radius: 0px;
+        p {
+            width: 370px;
+            line-height: 1.6em; 
+            color: #fbeee4;
+            font-family: "Work Sans", Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0 auto;
+        }
 
-                .search-widget-form {
-                    overflow: hidden;
-                    width: 90%;
+        .search-widget {
+            height: 142px;
+            width: 100%;
+            padding: 28px 0 0;
+            margin: 0 auto;
+            position: relative;
+            bottom: -225px;
+            background: image-url("searchbar_texture.png") no-repeat center, linear-gradient(to right, #71def4, #ed73e1);
+            background-size: cover;
+            border-radius: 4px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
 
-                    input {
-                        box-sizing: border-box;
-                        float: none;
-                        overflow: visible;
-                        height: 50px;
-                        width: 100%;
-                        margin: 0 48.5px 14px;
-                        padding: 0 40px 0 20px;
-                        line-height: 50px;
-                        font-size: 0.8rem;
-                        border-radius: 4px; 
-                    }
+            .search-widget-form {
+                overflow: hidden;
+                width: 90%;
 
-                    .button {
-                        background-color: #2b373a;  
-                        border-color: #2b373a;
-                    }
-                }     
-            }
+                input {
+                    box-sizing: border-box;
+                    float: none;
+                    overflow: visible;
+                    height: 50px;
+                    width: 100%;
+                    margin: 0 48.5px 14px;
+                    padding: 0 40px 0 20px;
+                    line-height: 50px;
+                    font-size: 0.8rem;
+                    border-radius: 4px; 
+                }
+
+                .button {
+                    background-color: #2b373a;  
+                    border-color: #2b373a;
+                }
+            }     
         }
     }
+}
 
 @media screen and (min-width: 970px) {
     .hero-wrap .hero .search-widget {
