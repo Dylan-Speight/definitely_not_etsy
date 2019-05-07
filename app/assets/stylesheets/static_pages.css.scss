@@ -26,7 +26,6 @@ input {
 
 // HERO
 
-a {
     .hero-wrap{
         min-height: 590px;
         width: 100vw;
@@ -92,10 +91,10 @@ a {
             }
         }
     }
-}
+
 
 @media screen and (min-width: 970px) {
-    a .hero-wrap .hero .search-widget {
+    .hero-wrap .hero .search-widget {
         width: 970px;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
