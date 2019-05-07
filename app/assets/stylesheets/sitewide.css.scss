@@ -11,6 +11,15 @@ div, nav, footer, p {
     display: block;
 }
 
+p {
+    margin-block-start: 0;
+    margin-block-end: 0; 
+}
+
+hr {
+    border: none;
+}
+
 h1, h2, h3, h4, h5, 
 h6 {
   line-height: 1em; 
@@ -61,6 +70,7 @@ header {
     .nav-link-left,
     .nav-link-right {
         display: none;
+        color: #fbeee4;
     }
 
     .nav-link-left.open,
