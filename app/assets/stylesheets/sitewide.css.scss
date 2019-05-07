@@ -125,23 +125,15 @@ button {
     }
 }
 
-@media only screen and (min-device-width: 1025px) {
-    .nav-wrap {
+@media screen and (min-width: 1025px) {
+    .nav-wrapper {
+
         header {
             flex-direction: row;
 
             .nav-left,
             .nav-right {
                 flex-direction: row;
-            }
-
-            .nav-left {
-                background-color: #71def4;
-            }
-        
-            .nav-right {
-                margin-left: auto;
-                background-color: #ed73e1;
             }
 
             .nav-toggle-left,
