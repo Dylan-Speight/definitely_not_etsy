@@ -1,10 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
 
 * System dependencies
@@ -28,22 +21,29 @@ Things you may want to cover:
 [App Link (Heroku):](https://www.heroku.com/carnivorous-raisin-4432)
 [Github Repo Link:](https://github.com/Dylan-Speight/definitely_not_etsy/)
 
+Ruby Version: 2.6.2
+
+Rails Version: 5.2.3
+
 ## Project Description
 ### Problem Definition & Purpose
 
+While Etsy and Ebay fill the 'User Store' marketplace, we identified them as being successful for different reasons. Ebay allows users to sell whatever they wanted with good search functionality to accomodate for it's broad scope. Etsy is focused more on user created items and craft goods, but with a much more appealing interface and design layout that makes it easy to use, and identify highly-rated products/stores.
 
+We feel as though there is a gap in the market for an application that combines both of the traits of these highly successful websites. We set out to design a general purpose marketplace that was both fun and easy to navigate. We wanted users feel as though they were able to find what they were looking for easily, and find themselves interacting with more personal stores that something that you might find on Ebay, which feel more like retail outlets rather than real people.
 
 ### Functionality & Features
+
+Our application allows any user to peruse products, although only authenticated users will be able to purchase products. Users can edit their view and edit their cart, and then pay for their order using Stripe as a third party for payment. Authenticated users can set up a store, and are able to define a category for their store, and provide a name (must be unique), and description for it. Store owners can create products for their store, with the ability to provide it an image, name, description, and price. Admins have permissions to delete users, stores, and products. The use case for allowing these permissions was determined to be for handling users/stores that are creating inappropriate products.
 
 ### Site Screenshots
 
 ### Tech Stack
-    Tech stack (e.g. html, css, deployment platform, etc)
-    HTML5 // CSS // JS // Ruby on Rails // Heroku
-    Google Fonts API // Font Awesome CDN
+We used Ruby on Rails as the framework for this application's development. The base for each page was built using HTML5 and styled using CSS (utilising SCSS). A minimal amount of Javascript was used to create the toggle functionality for the hamburger/user menus in the navigation bar. The application was deployed to Heroku. We called the Google Fonts API to import our font choice, 'Work Sans', and the Font Awesome CDN to utilise some groovy little icons throughout our web application.
 
 ### Instructions for App Use
-    Instructions on how to setup, configure and use your App
+WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
+
 
 ## Design Documentation
 ### Design Process
