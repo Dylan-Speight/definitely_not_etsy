@@ -8,7 +8,6 @@
   </div>
 
   <div class="show-panel">
-    <p id="notice"><%= notice %></p>
     <div class="field">
       <label>Username</label>
       <div class="textfield"><%= @user.username %></div>
@@ -30,7 +29,7 @@
 
     <div class="button-wrap">
       <%= link_to 'Edit', edit_user_path(id: current_user.id), class: "button" %>
-      <%= link_to 'Back', request.referrer, class: "button" %>
+      <%= link_to 'Back', root_path, class: "button" %>
     </div>
   </div>
 </div>
