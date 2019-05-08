@@ -105,7 +105,22 @@ See Problem Definition & Purpose
 
 ### Discuss the database relations to be implemented.
 
+Could specify names for foreign keys but left as default (reference_id)
+
 ### Describe your project’s models in terms of the relationships (active record associations) they have with each other.
+
+- User Model
+    - devise  
+        -  
+    - has_one :store
+        - A user can choose to have a store. has_one specifies a one-to-one relationship i.e. a user can only have one store. Without specific validation it allows the user to exist without any link to a store i.e. in this circumstance, a user can have a store, but does not have to.  
+
+    - has_many :orders
+        - A user can make many different product orders. This relationship enables users to access their own previous order details by pulling all order table entries referencing for that specific user_id  
+
+- Store Model  
+    - belongs_to :user
+        - 
 
 ### Provide your database schema design.
 
