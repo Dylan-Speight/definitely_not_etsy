@@ -129,33 +129,33 @@ button {
     }
 }
 
-@media screen and (min-width: 1025px) {
-    .nav-wrapper {
+// @media screen and (min-width: 1025px) {
+//     .nav-wrapper {
 
-        header {
-            flex-direction: row;
+//         header {
+//             flex-direction: row;
 
-            .nav-left,
-            .nav-right {
-                flex-direction: row;
-            }
+//             .nav-left,
+//             .nav-right {
+//                 flex-direction: row;
+//             }
 
-            .nav-toggle-left,
-            .nav-toggle-right {
-                display: none;
+//             .nav-toggle-left,
+//             .nav-toggle-right {
+//                 display: none;
 
-                i {
-                    display: none;
-                }
-            }
+//                 i {
+//                     display: none;
+//                 }
+//             }
 
-            .nav-link-left,
-            .nav-link-right {
-                display: block;
-            }
-        }
-    }
-}
+//             .nav-link-left,
+//             .nav-link-right {
+//                 display: block;
+//             }
+//         }
+//     }
+// }
 
 // FOOTER
 
