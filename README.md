@@ -44,8 +44,34 @@ WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
 
 ### Timeline
 
+- Sprint 1 (29/04 > 01/05):
+
+- Sprint 2 (02/05 > 04/05):  
+
+- 05/05: Rest day
+
+- Sprint 3 (06/05 > 08/05):  
+
+- Sprint 4 (09/05 > 11/05):
+
+- 12/05: Submission day, finalising documentation, finishing touches
 
 ### Trello Screenshots
+
+Sprint 1:  
+![picture](docs/30-04-Trello.png)
+
+Sprint 1:  
+![picture](docs/02-05-Trello.png)
+
+Sprint 1:  
+![picture](docs/06-05-Trello.png)
+
+Sprint 1:  
+![picture](docs/09-05-Trello.png)
+
+Finished:  
+![picture](docs/12-05-Trello.png)
 
 
 ## Short Answer Questions
@@ -83,6 +109,8 @@ See Problem Definition & Purpose
 
 ### Provide your database schema design.
 
+![picture](docs/Entity-Relationship-Diagram.png)
+
 ### Provide User stories for your App.
 
 ![picture](docs/User-Stories-1-12.png)
@@ -107,13 +135,15 @@ Desktop Product Page:
 
 ### Describe the way tasks are allocated and tracked in your project.
 
-Tasks were allocated just through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant.
+Tasks were allocated just through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant, we tried to simulate a real software development environment as possible, just to get comfortable with a workflow our future employers will likely have in place. Dylan tended to take tasks more related to the back-end of our application i.e. the controllers and their relationship with the models , while I took tasks with more front-end related elements i.e. views, and their relationship with the model.
 
 ### Discuss how Agile methodology is being implemented in your project.
 
 We decided from the outset of this project that we would attempt to use a feature oriented, sprint-based approach to development. This was a new experience for both of us. We set up three day sprints during which we would try to get a certain set of features/user stories finished. The decision making process behind which features/user stories we assigned to each sprint took into account two factors. The first was total time; we didn't want to assign more work than we thought we could finish based on estimated time allotments for each task. The second was how that feature fit into the overall design of our product. We wanted to develop features in a way that would make sense allow the building process to flow smoothly i.e. we wanted users to be able to sign-in first before we worried about how they would edit their profile.
 
 ### Provide an overview and description of your Source control process.
+
+We chose to use a feature branching workflow for this project. For each new feature/user story that we were addressing we 
 
 ### Provide an overview and description of your Testing process.
 
