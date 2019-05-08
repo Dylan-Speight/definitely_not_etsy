@@ -31,7 +31,7 @@ WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
 
 ## Design Documentation
 ### Design Process
-    Design choices // Accessability // Usability // Performance // Challenges
+    Design choices // Accessability // Usability // Performance // Challenges (Should have utilised something like bootstrap/bulma - made reused all own elements and used significantly more time that would have + result wasn't as nice since no time to really refine it)
 
 ### Workflow Diagram of the User Journey/s
 
