@@ -107,7 +107,11 @@ Desktop Product Page:
 
 ### Describe the way tasks are allocated and tracked in your project.
 
+Tasks were allocated just through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant.
+
 ### Discuss how Agile methodology is being implemented in your project.
+
+We decided from the outset of this project that we would attempt to use a feature oriented, sprint-based approach to development. This was a new experience for both of us. We set up three day sprints during which we would try to get a certain set of features/user stories finished. The decision making process behind which features/user stories we assigned to each sprint took into account two factors. The first was total time; we didn't want to assign more work than we thought we could finish based on estimated time allotments for each task. The second was how that feature fit into the overall design of our product. We wanted to develop features in a way that would make sense allow the building process to flow smoothly i.e. we wanted users to be able to sign-in first before we worried about how they would edit their profile.
 
 ### Provide an overview and description of your Source control process.
 
