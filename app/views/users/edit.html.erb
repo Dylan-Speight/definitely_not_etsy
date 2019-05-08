@@ -8,7 +8,9 @@
 
     <div class="edit-form">
         <%= render 'form', user: @user %>
-        <%= link_to 'Show', @user %> |
-        <%= link_to 'Back', users_path %>
+        <div class="buttons-wrap">
+            <%= link_to 'Show', @user %> |
+            <%= link_to 'Back', users_path %>
+        </div>
     </div>
 </div>

@@ -18,13 +18,41 @@
         margin: 0 auto;
         border: 1px solid #2b373a;
         border-radius: 6px;
+        
+        .field {
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 20px;
 
-        label {
-            color: #fbeee4;
+            label {
+                display: inline-block;
+                font-weight: 600;
+                color: #fbeee4;
+                padding-bottom: 5px;
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+                text-align: left;
+            }
+
+            input {
+                height: 20px;
+                border: 1px solid #ebebeb;
+                border-radius: 4px;
+                margin-bottom: 20px;
+            }
+        }  
+        
+        .line-separator {
+            width: 85%;
+            background-color: #ebebeb;
+            margin-left: auto;
+            height: 1px;
+            border: none;
         }
 
-        .field {
-            border-radius: 4px;
-        } 
+        .buttons-wrap {
+            width: 30%;
+            
+        }
     }
 }
