@@ -1,8 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="show-wrap">
 
-<p>
-  <strong>Store name:</strong>
-  <%= @store.store_name %>
+  <div class="show-panel">
+    <p id="notice"><%= notice %></p>
+    <div class="field">
+      <label>Store Name</label>
+      <div class="textfield"><%= @store.store_name %></div>
+    </div>
 
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+    <hr class="line-separator">
+
+    <div class="field">
+      <label>Owned By</label>
+      <div class="textfield"><%= @store.user_id %></div>
+    </div>
+
+    <div class="button-wrap">
+      <%= link_to 'Edit', edit_user_path(id: current_user.id), class: "button" %>
+      <%= link_to 'Back', request.referrer, class: "button" %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h1>PRODUCTS GO HERE</h1>
+</div>

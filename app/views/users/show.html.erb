@@ -30,7 +30,7 @@
 
     <div class="button-wrap">
       <%= link_to 'Edit', edit_user_path(id: current_user.id), class: "button" %>
-      <%= link_to 'Back', root_path, class: "button" %>
+      <%= link_to 'Back', request.referrer, class: "button" %>
     </div>
   </div>
 </div>

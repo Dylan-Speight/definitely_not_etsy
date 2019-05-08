@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit]
+  before_action :correct_user, only: [:show, :edit]
 
   # GET /users
   # GET /users.json
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
       if current_user == nil
         redirect_to root_path 
       elsif current_user != @correct_user
-        redirect_to edit_user_path(id: current_user.id)
+        redirect_to user_path(id: current_user.id)
       end
     end
 
