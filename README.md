@@ -111,16 +111,20 @@ Could specify names for foreign keys but left as default (reference_id)
 
 - User Model
     - devise  
-        -  
+        - FILL OUT DEVISE MODEL STUFF
     - has_one :store
         - A user can choose to have a store. has_one specifies a one-to-one relationship i.e. a user can only have one store. Without specific validation it allows the user to exist without any link to a store i.e. in this circumstance, a user can have a store, but does not have to.  
-
     - has_many :orders
         - A user can make many different product orders. This relationship enables users to access their own previous order details by pulling all order table entries referencing for that specific user_id  
 
 - Store Model  
     - belongs_to :user
-        - 
+        - A store must belong to a user. For a entry to be created in the Store table, it must reference a user_id. This means a person visiting the site cannot create a store without first creating a regular user account. This provides a layer of authentication and prevents stores from easily being spam created.
+    - has_many :products
+        - A store can have many products. This relationship is relatively self-explanatory. Any store should be able to stock many different items. Any other relationship would not really make sense here.
+    - has_many :store_orders
+        - A store may have many different orders made from it.
+
 
 ### Provide your database schema design.
 
