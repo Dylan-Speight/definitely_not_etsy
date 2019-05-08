@@ -59,7 +59,7 @@ input {
             padding: 28px 0 0;
             margin: 0 auto;
             position: relative;
-            bottom: -225px;
+            bottom: -190px;
             background: image-url("searchbar_texture.png") no-repeat center, linear-gradient(to right, #71def4, #ed73e1);
             background-size: cover;
             border-radius: 4px;
@@ -67,14 +67,14 @@ input {
             border-bottom-right-radius: 0px;
 
             .search-widget-form {
-                width: 90%;
+                width: 100%;
 
                 input {
                     box-sizing: border-box;
                     float: none;
                     overflow: visible;
                     height: 50px;
-                    width: 100%;
+                    width: 90%;
                     margin: 0 48.5px 14px;
                     padding: 0 40px 0 20px;
                     line-height: 50px;
@@ -91,6 +91,18 @@ input {
     }
 }
 
+@media screen and (max-width: 1920px) {
+    .hero-wrap {
+        background: image-url("hero-bg-desktop.jpg") no-repeat center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .hero-wrap {
+        background: image-url("hero-bg-tablet.jpg") no-repeat center;
+    }
+}
+
 @media screen and (min-width: 970px) {
     .hero-wrap .hero .search-widget {
         width: 970px;
@@ -99,17 +111,27 @@ input {
     }
 }
 
+@media screen and (max-width: 420px) {
+    .hero-wrap .hero .search-widget .search-widget-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
 // SERVICES
 
 .services-wrap {
     background-color: #ffffff;
-    padding-top: 80px;
+    padding-top: 100px;
+    padding-bottom: 50px;
 
     .services {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding-top: 45px;
+        padding-top: 40px;
         max-width: 1170px;
         width: 95%;
         margin: 0 auto;
@@ -147,6 +169,8 @@ input {
                 h3, p {
                     color: #2b373a;
                     font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+                    margin: 13px 0;
+                    font-size: 0.9em;
                 }
             }
         }
@@ -329,7 +353,7 @@ input {
                     span {
                         font-size: 0.8em;
                         position: relative;
-                        top: -2px;
+                        top: -1px;
                     }
                 }
             }
@@ -360,6 +384,7 @@ input {
                 float:right;
                 padding-right: 7.5px;
                 bottom: 18px;
+                font-size: 0.8rem;
             }
         }
 
