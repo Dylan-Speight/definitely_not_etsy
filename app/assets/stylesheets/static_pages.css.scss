@@ -91,6 +91,18 @@ input {
     }
 }
 
+@media screen and (max-width: 1920px) {
+    .hero-wrap {
+        background: image-url("hero-bg-desktop.jpg") no-repeat center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .hero-wrap {
+        background: image-url("hero-bg-tablet.jpg") no-repeat center;
+    }
+}
+
 @media screen and (min-width: 970px) {
     .hero-wrap .hero .search-widget {
         width: 970px;
