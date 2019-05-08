@@ -27,7 +27,7 @@
                 <div class="nav-link-left"><%= link_to "Products", products_path %></div>
                 <% if current_user %>
                   <% if Store.exists?(user_id: current_user.id) %>
-                    <div class="nav-link-left"><%= link_to "My Store", stores_path %></div>
+                    <div class="nav-link-left"><%= link_to "My Store", store_path(id: Store.find_by(user_id: current_user.id)) %></div>
                   <% else %>
                     <div class="nav-link-left"><%= link_to "Create a Store", new_store_path%></div>
                   <% end %>
@@ -45,7 +45,7 @@
                  <span class="icon-user"></span>
                     <% if current_user %>
                       <div id="profile" class="nav-link-right">
-                        <%= link_to "Profile", edit_user_path(id: current_user.id) %>
+                        <%= link_to "Profile", user_path(id: current_user.id) %>
                       </div>
                       <div class="nav-link-right">Your Cart</div>
                       <div class="nav-link-right">

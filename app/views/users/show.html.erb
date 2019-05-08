@@ -1,19 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="show-wrap">
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+  <div class="user-title-wrap">
+      <div class="user-title">
+          <h1><%= @user.username %>'s Profile</h1>
+          <div class="title-underline"></div>
+      </div>
+  </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
+  <div class="show-panel">
+    <p id="notice"><%= notice %></p>
+    <div class="field">
+      <label>Username</label>
+      <div class="textfield"><%= @user.username %></div>
+    </div>
 
-<p>
-  <strong>Email address:</strong>
-  <%= @user.email %>
-</p>
+    <hr class="line-separator">
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <div class="field">
+      <label>Address</label>
+      <div class="textfield"><%= @user.address %></div>
+    </div>
+
+    <hr class="line-separator">
+
+    <div class="field">
+      <label>Email Address</label>
+      <div class="textfield"><%= @user.email %></div>
+    </div>
+
+    <div class="button-wrap">
+      <%= link_to 'Edit', edit_user_path(id: current_user.id), class: "button" %>
+      <%= link_to 'Back', root_path, class: "button" %>
+    </div>
+  </div>
+</div>
+
+
