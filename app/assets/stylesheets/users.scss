@@ -3,56 +3,128 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .edit-wrap {
+    display: inline-block;
+    width: 100vw;
     background: image-url("profile-bg.jpg") no-repeat center;
     background-size: cover;
-    height: 62vh;
 
-    .edit-title {
-        padding: 30px 0;  
+    .edit-title-wrap {
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 30px;
+
+        .edit-title {
+            display: inline-block;
+
+            .title-underline {
+                height: 4px;
+                background: linear-gradient(to right, #71def4, #ed73e1);
+            }
+        }
     }
 
     .edit-form {
-        background: #2b373a image-url("promo1_texture.png");
-        height: 50vh;
+        display: inline-block;
+        background: #fff image-url("promo1_texture.png");
         width: 85%;
-        margin: 0 auto;
-        border: 1px solid #2b373a;
+        margin: 60px 10vw;
+        border: 2px solid #2b373a;
         border-radius: 6px;
         
+        h2 {
+            margin: 0 20px;
+            padding: 40px 0;
+            color: #2b373a;
+            font-weight: 400;
+            font-size: 1rem;
+            text-transform: unset;
+        }
+
         .field {
-            width: 50%;
+            display: flex;
+            width: 85%;
             margin: 0 auto;
             padding-top: 20px;
 
             label {
-                display: inline-block;
+                align-self: center;
+                width: 200px;
                 font-weight: 600;
-                color: #fbeee4;
+                color: #2b373a;
                 padding-bottom: 5px;
                 margin-bottom: 20px;
                 font-size: 1.5rem;
-                text-align: left;
+                text-align: right;
             }
 
             input {
-                height: 20px;
-                border: 1px solid #ebebeb;
-                border-radius: 4px;
+                display: inline-block;
+                box-sizing: border-box;
+                width: 75%;
+                height: 36px;
+                margin-left: 20px;
                 margin-bottom: 20px;
+                padding-left: 20px;
+                border: 1px solid #2b373a;
+                border-radius: 4px;
+                font-family: 'Work Sans', Arial, Helvetica, sans-serif; 
+                font-size: 1rem;
             }
         }  
         
         .line-separator {
             width: 85%;
-            background-color: #ebebeb;
+            background-color: #2b373a;
             margin-left: auto;
             height: 1px;
             border: none;
         }
 
-        .buttons-wrap {
-            width: 30%;
-            
+        .actions {
+            input {
+                display: block;
+                height: 50px;
+                width: 280px;
+                margin: 30px auto 60px;
+                line-height: 50px;
+                border-radius: 4px;
+                border-color: #2b373a;
+                text-align: center;
+                background-color: #2b373a;
+                color: #fbeee4;
+                font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
         }
     }
+}
+
+@media screen and (max-width: 767px) {
+    .edit-wrap {
+        height: 800px;
+        margin: auto auto;
+    }
+
+    .edit-wrap .edit-form {
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .field {
+            flex-direction: column;
+            align-content: center;
+
+            label {
+                text-align: center;
+                font-size: 1.25rem;
+            }
+
+            input {
+                width: 85%;           
+            }
+        }
+    }
+
+
 }
