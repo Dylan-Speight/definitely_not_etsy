@@ -48,9 +48,11 @@
                  <%= link_to product_orders_path do %>
                  <div class="nav-link-right">Your Orders</div>
                  <% end %>
-                 
+
                     <% if current_user %>
-                      <div class="nav-link-right" ><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+                      <div class="nav-link-right" >
+                      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                      </div>
                     <% else %>
                       <div class="nav-link-right" ><%= link_to "Sign Up", new_user_registration_path %></div>
                       <div class="nav-link-right" ><%= link_to "Sign In", new_user_session_path %></div>
