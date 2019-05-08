@@ -7,6 +7,7 @@
     <tr>
       <th>Store</th>
       <th>Name</th>
+      <th>Category</th>
       <th>Description</th>
       <th>Price</th>
       <th colspan="3"></th>
@@ -16,8 +17,9 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.store_id %></td>
+        <td><%= product.store_name %></td>
         <td><%= product.name %></td>
+        <td><%= product.category %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td><%= link_to 'Show', product %></td>

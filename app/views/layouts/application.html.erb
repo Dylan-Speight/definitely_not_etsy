@@ -23,9 +23,21 @@
               <i class="fas fa-bars"></i>
             </div>
             <nav class="nav-left">
+<<<<<<< HEAD
+                <%= link_to root_path do %>
+                <div class="nav-link-left">Home</div>
+                <% end %>
+                <%= link_to stores_path do %>
+                  <div class="nav-link-left">Your Store</div>
+                <% end %>
+                <%= link_to products_path do%>
+                <div class="nav-link-left">Products</div>
+                <% end %>
+=======
               <div class="nav-link-left"><a href='/'>Home</div>
               <div class="nav-link-left"><a href='/stores/new'>Become a Seller</a></div>
               <div class="nav-link-left"><a href='/products'>Products</a></div>
+>>>>>>> fa0e3da030922dbbf244b9408dd118f029daa31c
             </nav>
             <div class="logo">
               <a href="/"><i class="fas fa-store"></i></a>
@@ -35,6 +47,26 @@
             </div>
             <div class="cart">
               <a class=""></a>
+<<<<<<< HEAD
+             <nav class="nav-right">
+                 <span class="icon-user"></span>
+                 <div id="profile" class="nav-link-right">Profile</div>
+                 <div class="nav-link-right">Your Cart</div>
+                 <%= link_to product_orders_path do %>
+                 <div class="nav-link-right">Your Orders</div>
+                 <% end %>
+
+                    <% if current_user %>
+                      <div class="nav-link-right" >
+                      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                      </div>
+                    <% else %>
+                      <div class="nav-link-right" ><%= link_to "Sign Up", new_user_registration_path %></div>
+                      <div class="nav-link-right" ><%= link_to "Sign In", new_user_session_path %></div>
+                    <% end %>
+                  
+             </nav>
+=======
             </div>
             <nav class="nav-right">
               <span class="icon-user"></span>
@@ -42,8 +74,10 @@
               <div class="nav-link-right">Your Cart</div>
               <div class="nav-link-right"><a href='/product_orders'>Your Orders</a></div>
             </nav>
+>>>>>>> fa0e3da030922dbbf244b9408dd118f029daa31c
         </header>
     </div>
+
 
     <%= yield %>
 
