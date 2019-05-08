@@ -1,21 +1,3 @@
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Ruby on Rails Web App Project: Itzy
 
 [App Link (Heroku):](https://www.heroku.com/carnivorous-raisin-4432)
@@ -38,6 +20,8 @@ Our application allows any user to peruse products, although only authenticated 
 
 ### Site Screenshots
 
+
+
 ### Tech Stack
 We used Ruby on Rails as the framework for this application's development. The base for each page was built using HTML5 and styled using CSS (utilising SCSS). A minimal amount of Javascript was used to create the toggle functionality for the hamburger/user menus in the navigation bar. The application was deployed to Heroku. We called the Google Fonts API to import our font choice, 'Work Sans', and the Font Awesome CDN to utilise some groovy little icons throughout our web application.
 
@@ -49,30 +33,7 @@ WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
 ### Design Process
     Design choices // Accessability // Usability // Performance // Challenges
 
-### User Stories
-
-![picture](docs/User-Stories-1-12.png)
-![picture](docs/User-Stories-13-14.png)
-
-
 ### Workflow Diagram of the User Journey/s
-
-### Wireframes
-
-Mobile Home Page:
-![picture](docs/Wireframe-Mobile-Home)
-
-Tablet Home Page:
-![picture](docs/Wireframe-Tablet-Home)
-
-Desktop Home Page:
-![picture](docs/Wireframe-Desktop-Home)
-
-Desktop Store Page:
-![picture](docs/Wireframe-Desktop-Store)
-
-Desktop Product Page:
-![picture](docs/Wireframe-Desktop-Product)
 
 ### Database Entity Relationship Diagram
 ![picture](docs/Entity-Relationship-Diagram)
@@ -83,21 +44,22 @@ Desktop Product Page:
 
 ### Timeline
 
+
 ### Trello Screenshots
 
-![picture](docs/User-Stories-1-12.png)
-![picture](docs/User-Stories-13-14.png)
 
 ## Short Answer Questions
 ### What is the need (i.e. challenge) that you will be addressing in your project?
-Expand on: 
-Etsy tends to be a more craft-oriented user-base. 
+
+See Problem Definition & Purpose
 
 ### Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
-Expand on:
-Want to create a more general purpose competitor. Big market.
+
+See Problem Definition & Purpose
 
 ### Describe the project will you be conducting and how your App will address the needs.
+
+See Problem Definition & Purpose
 
 ### Describe the network infrastructure the App may be based on.
 
@@ -123,7 +85,25 @@ Want to create a more general purpose competitor. Big market.
 
 ### Provide User stories for your App.
 
+![picture](docs/User-Stories-1-12.png)
+![picture](docs/User-Stories-13-14.png)
+
 ### Provide Wireframes for your App.
+
+Mobile Home Page:
+![picture](docs/Wireframe-Mobile-Home)
+
+Tablet Home Page:
+![picture](docs/Wireframe-Tablet-Home)
+
+Desktop Home Page:
+![picture](docs/Wireframe-Desktop-Home)
+
+Desktop Store Page:
+![picture](docs/Wireframe-Desktop-Store)
+
+Desktop Product Page:
+![picture](docs/Wireframe-Desktop-Product)
 
 ### Describe the way tasks are allocated and tracked in your project.
 
