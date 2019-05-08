@@ -61,13 +61,13 @@ WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
 Sprint 1:  
 ![picture](docs/30-04-Trello.png)
 
-Sprint 1:  
+Sprint 2:  
 ![picture](docs/02-05-Trello.png)
 
-Sprint 1:  
+Sprint 3:  
 ![picture](docs/06-05-Trello.png)
 
-Sprint 1:  
+Sprint 4:  
 ![picture](docs/09-05-Trello.png)
 
 Finished:  
