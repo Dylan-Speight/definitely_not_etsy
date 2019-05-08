@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-wrap {
+    form {
+        background: #2b373a image-url("promo1_texture.png");
+        width: 85%;
+        margin: 0 auto;
+        border: 1px solid #2b373a;
+        border-radius: 6px;
+
+        label {
+            color: #fbeee4;
+        }
+
+        input {
+            left: 50%;
+        }
+
+        .field {
+            border-radius: 4px;
+        } 
+    }
+}
