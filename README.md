@@ -37,6 +37,7 @@ Design choices // Accessability // Usability // Performance // Challenges (Shoul
 
 ### Future Development
 
+Next page for products and limiting total products on products show page, rather than having to search or scroll through ALL products. Category being a dropdown rather than user chosen and implement sidebar allowing users to filter products by category. user_id reuse after deletion
 
 ## Planning Process
 ### Project Plan
@@ -129,6 +130,8 @@ Could specify names for foreign keys but left as default (reference_id)
 ### Provide your database schema design.
 
 ![picture](docs/Entity-Relationship-Diagram.png)
+
+TALK ABOUT ACTIVE STORAGE
 
 ### Provide User stories for your App.
 
