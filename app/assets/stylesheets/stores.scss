@@ -5,3 +5,33 @@
 .show-panel {
     padding: 60px 0;
 }
+
+.product-wrap .product-item-wrap .product-item #link {
+    cursor: pointer;
+}
+
+.product-wrap .product-item-wrap .product-item .button-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+
+    .button {
+        display: block;
+        height: 40px;
+        width: 125px;
+        margin: 30px auto 60px;
+        padding-bottom: 10px;
+        border-radius: 4px;
+        text-align: center;
+        background-color: #2b373a;
+        color: #fbeee4;
+        font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .button.red {
+        background-color: red;
+    }
+}
