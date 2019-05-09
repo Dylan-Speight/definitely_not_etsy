@@ -35,8 +35,8 @@ Design choices // Accessability // Usability // Performance // Challenges (Shoul
 
 ### Workflow Diagram of the User Journey/s
 
-### Database Entity Relationship Diagram
-![picture](docs/Entity-Relationship-Diagram)
+### Future Development
+
 
 ## Planning Process
 ### Project Plan

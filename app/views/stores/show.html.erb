@@ -10,7 +10,7 @@
 
     <div class="field">
       <label>Owned By</label>
-      <div class="textfield"><%= @user = User.find_by(id: @store.user_id); @user.username %></div>
+      <div class="textfield"><%= @user.username %></div>
     </div>
 
     <div class="button-wrap">
@@ -22,6 +22,29 @@
   </div>
 </div>
 
+
 <div>
   <h1>PRODUCTS GO HERE</h1>
+  <% @products.each do |product| %>
+    <div class="product-item">
+      <figure class="product-preview">
+        <%= image_tag("placeholder.png") %>
+      </figure>
+      <div class="product-info">
+        <a href="#">
+          <h4 class="product-info-header"><b><%= product.name %></b></h4>
+        </a>
+        <p class="product-description"><%= product.description %></p>
+        <a href="#">
+          <h5 class="product-category"><%= product.category %></h5>
+        </a>
+        <p class="price"><b><span>$</span><%= product.price %></b></p>
+      </div>
+      <hr class="line-separator">
+      <div class="product-user-info">
+        <a href="#"><p class="product-user"><b><%= product.id %></b></p></a>
+        <p class="product-user-rating">Rating Placeholder</p>
+      </div>
+    </div>
+  <% end %>
 </div>

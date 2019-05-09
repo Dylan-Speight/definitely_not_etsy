@@ -11,6 +11,8 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @user = User.find_by(id: @store.user_id)
+    @products = Product.where(store_id: @store.id)
   end
 
   # GET /stores/new
