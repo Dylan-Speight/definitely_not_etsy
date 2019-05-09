@@ -16,17 +16,27 @@
     <%= form.text_field :username %>
   </div>
 
+<!--
+  <hr class="line-separator">
+
   <div class="field">
-    <%= form.label :email_address %>
-    <%= form.text_field :email_address %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
   </div>
+-->
+
+  <hr class="line-separator">
 
   <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button-wrap">
+    <div class="button actions">
+      <%= form.submit %>
+    </div>
+    <%= link_to 'Back', user_path(id: current_user.id), class: "button" %>
   </div>
+  
 <% end %>

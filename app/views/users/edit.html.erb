@@ -1,8 +1,16 @@
-<div class="form-wrap">
-    <h1>Editing User</h1>
+<div class="edit-wrap">
+    <div class="user-title-wrap">
+        <div class="user-title">
+            <h1><%= @user.username %>'s Profile</h1>
+            <div class="title-underline"></div>
+        </div>
+    </div>
 
-    <%= render 'form', user: @user %>
-
-    <%= link_to 'Show', @user %> |
-    <%= link_to 'Back', users_path %>
+    <div class="edit-form">
+        <h2>
+            Update your profile details by editing any of the fields
+            below and clicking 'Update User'
+        </h2>
+        <%= render 'form', user: @user %>
+    </div>
 </div>

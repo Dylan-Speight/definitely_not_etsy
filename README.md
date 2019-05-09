@@ -31,12 +31,12 @@ WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
 
 ## Design Documentation
 ### Design Process
-    Design choices // Accessability // Usability // Performance // Challenges
+Design choices // Accessability // Usability // Performance // Challenges (Should have utilised something like bootstrap/bulma - made reused all own elements and used significantly more time that would have + result wasn't as nice since no time to really refine it > Some user stories a bit limited in scope, didn't really take into account what it meant in rails to view store products - should have been view store, THEN view products in store, THEN add products to store)
 
 ### Workflow Diagram of the User Journey/s
 
-### Database Entity Relationship Diagram
-![picture](docs/Entity-Relationship-Diagram)
+### Future Development
+
 
 ## Planning Process
 ### Project Plan
@@ -44,8 +44,34 @@ WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
 
 ### Timeline
 
+- Sprint 1 (29/04 > 01/05):
+
+- Sprint 2 (02/05 > 04/05):  
+
+- 05/05: Rest day
+
+- Sprint 3 (06/05 > 08/05):  
+
+- Sprint 4 (09/05 > 11/05):
+
+- 12/05: Submission day, finalising documentation, finishing touches
 
 ### Trello Screenshots
+
+Sprint 1:  
+![picture](docs/30-04-Trello.png)
+
+Sprint 2:  
+![picture](docs/02-05-Trello.png)
+
+Sprint 3:  
+![picture](docs/06-05-Trello.png)
+
+Sprint 4:  
+![picture](docs/09-05-Trello.png)
+
+Finished:  
+![picture](docs/12-05-Trello.png)
 
 
 ## Short Answer Questions
@@ -79,9 +105,30 @@ See Problem Definition & Purpose
 
 ### Discuss the database relations to be implemented.
 
+Could specify names for foreign keys but left as default (reference_id)
+
 ### Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
+- User Model
+    - devise  
+        - FILL OUT DEVISE MODEL STUFF
+    - has_one :store
+        - A user can choose to have a store. has_one specifies a one-to-one relationship i.e. a user can only have one store. Without specific validation it allows the user to exist without any link to a store i.e. in this circumstance, a user can have a store, but does not have to.  
+    - has_many :orders
+        - A user can make many different product orders. This relationship enables users to access their own previous order details by pulling all order table entries referencing for that specific user_id  
+
+- Store Model  
+    - belongs_to :user
+        - A store must belong to a user. For a entry to be created in the Store table, it must reference a user_id. This means a person visiting the site cannot create a store without first creating a regular user account. This provides a layer of authentication and prevents stores from easily being spam created.
+    - has_many :products
+        - A store can have many products. This relationship is relatively self-explanatory. Any store should be able to stock many different items. Any other relationship would not really make sense here.
+    - has_many :store_orders
+        - A store may have many different orders made from it.
+
+
 ### Provide your database schema design.
+
+![picture](docs/Entity-Relationship-Diagram.png)
 
 ### Provide User stories for your App.
 
@@ -107,13 +154,15 @@ Desktop Product Page:
 
 ### Describe the way tasks are allocated and tracked in your project.
 
-Tasks were allocated just through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant.
+Tasks were allocated just through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant, we tried to simulate a real software development environment as possible, just to get comfortable with a workflow our future employers will likely have in place. Dylan tended to take tasks more related to the back-end of our application i.e. the controllers and their relationship with the models , while I took tasks with more front-end related elements i.e. views, and their relationship with the model.
 
 ### Discuss how Agile methodology is being implemented in your project.
 
-We decided from the outset of this project that we would attempt to use a feature oriented, sprint-based approach to development. This was a new experience for both of us. We set up three day sprints during which we would try to get a certain set of features/user stories finished. The decision making process behind which features/user stories we assigned to each sprint took into account two factors. The first was total time; we didn't want to assign more work than we thought we could finish based on estimated time allotments for each task. The second was how that feature fit into the overall design of our product. We wanted to develop features in a way that would make sense allow the building process to flow smoothly i.e. we wanted users to be able to sign-in first before we worried about how they would edit their profile.
+We decided from the outset of this project that we would attempt to use a feature oriented, sprint-based approach to development. This was a new experience for both of us. We set up three day sprints during which we would try to get a certain set of features/user stories finished. The decision making process behind which features/user stories we assigned to each sprint took into account two factors. The first was total time; we didn't want to assign more work than we thought we could finish based on estimated time allotments for each task. The second was how that feature fit into the overall design of our product. We wanted to develop features in a way that would make sense allow the building process to flow smoothly i.e. we wanted users to be able to register and sign-in first before we worried about how they would edit their profile.
 
 ### Provide an overview and description of your Source control process.
+
+We chose to use a feature branching workflow for this project. For each new feature/user story that we were addressing we 
 
 ### Provide an overview and description of your Testing process.
 

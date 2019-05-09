@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /stores
   # GET /stores.json
@@ -10,6 +11,8 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @user = User.find_by(id: @store.user_id)
+    @products = Product.where(store_id: @store.id)
   end
 
   # GET /stores/new
@@ -24,7 +27,8 @@ class StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
-    @store = Store.new(store_params)
+    @store = Store.new(store_params.merge(user_id: current_user.id))
+    @user = current_user[:id]
 
     respond_to do |format|
       if @store.save
@@ -65,6 +69,17 @@ class StoresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_store
       @store = Store.find(params[:id])
+    rescue
+      redirect_to root_path
+    end
+
+    def correct_user
+      @store = Store.find(params[:id])
+      if current_user == nil
+        redirect_to root_path 
+      elsif current_user != User.find_by(id: @store.user_id)
+        redirect_to store_path(user_id: current_user.id)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
