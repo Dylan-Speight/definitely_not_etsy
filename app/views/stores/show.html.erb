@@ -1,7 +1,6 @@
 <div class="show-wrap">
 
   <div class="show-panel">
-    <p id="notice"><%= notice %></p>
     <div class="field">
       <label>Store Name</label>
       <div class="textfield"><%= @store.store_name %></div>
@@ -11,13 +10,14 @@
 
     <div class="field">
       <label>Owned By</label>
-      <div class="textfield"><%= @store.user_id %></div>
+      <div class="textfield"><%= @user = User.find_by(id: @store.user_id); @user.username %></div>
     </div>
 
     <div class="button-wrap">
-      <%= link_to 'Edit', edit_store_path(user_id: Store.find_by(user_id: current_user.id)), class: "button" %>
-      <%= link_to 'Delete Store', store_path(id: current_user.id), method: :delete, class: "button" %>
-      <%= link_to 'Back', root_path, class: "button" %>
+      <% if current_user.id == @store.user_id %>
+        <%= link_to 'Edit', edit_store_path(user_id: Store.find_by(user_id: current_user.id)), class: "button" %>
+        <%= link_to 'Delete Store', store_path(id: current_user.id), method: :delete, class: "button red" %>
+      <% end %>
     </div>
   </div>
 </div>
