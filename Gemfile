@@ -4,7 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.2'
 
 gem 'dotenv-rails', '>= 2.5', :groups => [:development, :test]
+
 gem 'stripe'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
@@ -70,9 +72,9 @@ gem "devise", "~> 4.6"
 gem "rolify", "~> 5.2"
 
 gem "cloudinary"
+
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 
 gem 'carrierwave', '~> 1.0'
-
 
 gem "bootstrap", "~> 4.3"
