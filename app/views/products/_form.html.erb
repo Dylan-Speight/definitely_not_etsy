@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div>
+  <%= form_for "", url: products_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
+  <% end %>
+
   <div class="field">
     <%= form.label :category %>
     <%= form.text_field :category %> 
