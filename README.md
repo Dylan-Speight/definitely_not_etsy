@@ -26,7 +26,7 @@ Our application allows any user to peruse products, although only authenticated 
 We used Ruby on Rails as the framework for this application's development. The base for each page was built using HTML5 and styled using CSS (utilising SCSS). A minimal amount of Javascript was used to create the toggle functionality for the hamburger/user menus in the navigation bar. The application was deployed to Heroku. We called the Google Fonts API to import our font choice, 'Work Sans', and the Font Awesome CDN to utilise some groovy little icons throughout our web application.
 
 ### Instructions for App Use
-WHAT FEATURES ARE AVAILABLE AND HOW TO USE THEM
+HOW DOES A USER USE THE SITE
 
 
 ## Design Documentation
@@ -123,8 +123,8 @@ Could specify names for foreign keys but left as default (reference_id)
         - A store must belong to a user. For a entry to be created in the Store table, it must reference a user_id. This means a person visiting the site cannot create a store without first creating a regular user account. This provides a layer of authentication and prevents stores from easily being spam created.
     - has_many :products
         - A store can have many products. This relationship is relatively self-explanatory. Any store should be able to stock many different items. Any other relationship would not really make sense here.
-    - has_many :store_orders
-        - A store may have many different orders made from it.
+
+
 
 
 ### Provide your database schema design.
