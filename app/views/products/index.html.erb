@@ -1,5 +1,12 @@
 <div class="product-wrap">
   <h1>Products</h1>
+
+  <div>
+    <%= form_for "", url: products_path, role: "search", method: :get do %>
+    <%= text_field_tag :search, @search_term, placeholder: "Search products..." %>
+  <% end %>
+  <div>
+
   <div class="product-item-wrap">
     <% @products.each do |product| %>
       <div class="product-item">
