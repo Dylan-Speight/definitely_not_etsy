@@ -18,7 +18,7 @@ class Product < ApplicationRecord
     end
   
     def self.search_by(search_term)
-        where("LOWER(name) Like :search_term", search_term: "%#{search_term.downcase}%")
+        where("LOWER(name) Like :search_term OR LOWER(category) Like :search_term OR LOWER(description) Like :search_term", search_term: "%#{search_term.downcase}%")
     end
   
 end
