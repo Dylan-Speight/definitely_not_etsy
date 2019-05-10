@@ -26,10 +26,9 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     data = product_params
-    data[:image] = data.image.attach(data[:image])
-    data[:store_name] = current_user.store.store_name
     data[:store_id] = current_user.store.id
     @product = Product.new(data)
+    @product.image.attach(product_params[:image])
 
     respond_to do |format|
       if @product.save

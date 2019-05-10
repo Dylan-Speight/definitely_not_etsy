@@ -5,7 +5,7 @@
       <div class="product-item">
         <%= link_to product, id: "link" do %>
         <figure class="product-preview">
-          <%= image_tag("placeholder.png") %>
+          <%= image_tag product.image %> 
         </figure>
         <div class="product-info">
           <h4 class="product-info-header"><b><%= product.name %></b></h4>

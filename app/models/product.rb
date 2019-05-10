@@ -4,5 +4,16 @@ class Product < ApplicationRecord
     has_one_attached :image
 
     validates :store_id, presence: true
+
     delegate :store_name, to: :store
+
+    after_commit :has_image, on: [:create, :update]
+
+    private
+
+    def has_image
+        unless image.attached?
+            self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'placeholder.png')), filename: 'placeholder.png', content_type: 'image/png')
+        end
+    end
 end
