@@ -13,7 +13,7 @@ class Product < ApplicationRecord
 
     def has_image
         unless image.attached?
-            self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'placeholder.png')), filename: 'placeholder.png', content_type: 'image/png')
+            self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'hero-bg.jpg')), filename: 'hero-bg.jpg', content_type: 'image/png')
         end
     end
 end
