@@ -20,6 +20,11 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    if current_user == nil
+      redirect_to new_user_registration_path
+    elsif current_user.store == nil
+      redirect_to new_store_path
+    end
   end
 
   # GET /products/1/edit

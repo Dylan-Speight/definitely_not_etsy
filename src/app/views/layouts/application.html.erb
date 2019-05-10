@@ -28,6 +28,7 @@
                 <% if current_user %>
                   <% if Store.exists?(user_id: current_user.id) %>
                     <div class="nav-link-left"><%= link_to "My Store", store_path(id: Store.find_by(user_id: current_user.id)) %></div>
+                    <div class="nav-link-left"><%= link_to "Add a Product", new_product_path %></div>
                   <% else %>
                     <div class="nav-link-left"><%= link_to "Create a Store", new_store_path%></div>
                   <% end %>
