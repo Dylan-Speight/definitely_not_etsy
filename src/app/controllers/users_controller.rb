@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    unless current_user.has_role? :admin
+      redirect_to root_path
+    end
   end
   
   # GET /users/1

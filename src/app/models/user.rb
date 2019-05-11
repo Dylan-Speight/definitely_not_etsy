@@ -8,7 +8,5 @@ class User < ApplicationRecord
   has_one :store
   has_many :orders
 
-  resourcify
-
   validates :username, :address, presence: true
 end
