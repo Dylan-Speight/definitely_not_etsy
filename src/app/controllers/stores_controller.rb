@@ -6,6 +6,9 @@ class StoresController < ApplicationController
   # GET /stores.json
   def index
     @stores = Store.all
+    unless current_user.has_role? :admin
+      redirect_to root_path
+    end
   end
 
   # GET /stores/1

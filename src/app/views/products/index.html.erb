@@ -1,5 +1,7 @@
 <div class="product-wrap">
-  <h1>Products</h1>
+  <div class="product-header">
+    <h4>Latest Online Products</h4>
+  </div>
 
   <div>
     <%= form_for "", url: products_path, role: "search", method: :get do %>
@@ -27,7 +29,18 @@
             <p class="product-user"><b><%= product.store_name %></b></p>
           <% end %>
           <p class="product-user-rating">Rating Placeholder</p>
-        </div> 
+        </div>
+        <% if !user_signed_in? %>
+        <% elsif current_user.id != product.store.user_id %>
+          <div class="button-wrap">
+              <%= link_to 'Add to Cart', new_product_order_path, class: "button green" %> 
+          </div>
+        <% elsif current_user.id == product.store.user_id %>
+          <div class="button-wrap">
+              <%= link_to 'Edit', edit_product_path(id: product.id), class: "button" %>
+              <%= link_to 'Delete', product_path(id: product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button red" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
