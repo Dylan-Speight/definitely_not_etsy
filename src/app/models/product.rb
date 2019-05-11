@@ -3,6 +3,8 @@ class Product < ApplicationRecord
     has_many :product_orders
     has_one_attached :image
 
+    resourcify
+
     validates :store_id, presence: true
 
     delegate :store_name, to: :store
