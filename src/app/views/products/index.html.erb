@@ -3,11 +3,13 @@
     <h4>Latest Online Products</h4>
   </div>
 
-  <div>
-    <%= form_for "", url: products_path, role: "search", method: :get do %>
-    <%= text_field_tag :search, @search_term, placeholder: "Search products..." %>
-    <% end %>
-  <div>
+  <div class="search-widget">
+    <div class="search-widget-form">
+      <%= form_for "", url: products_path, role: "search", method: :get do %>
+        <%= text_field_tag :search, @search_term, placeholder: "Search products..." %>
+      <% end %>
+    </div>
+  </div>
 
   <div class="product-item-wrap">
     <% @products.each do |product| %>
@@ -44,4 +46,5 @@
       </div>
     <% end %>
   </div>
+
 </div>
