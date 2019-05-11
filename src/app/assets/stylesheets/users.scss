@@ -246,3 +246,65 @@
         }
     }
 }
+
+// INDEX (ADMIN USER MANAGEMENT PANEL)
+
+.admin-panel-wrap {
+    padding: 60px 0;
+    background-color: #ebebeb;
+
+    .admin-panel {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: 50px auto;
+        padding: 50px 0;
+        border: 1px solid #2b373a;
+        border-radius: 6px;
+        background-color: #fff;
+        font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+        justify-content: center;
+
+
+        h1 {
+            color: #2b373a;
+            width: 100%;
+        }
+
+        table {
+            width: 80%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        table tr {
+            color: #2b373a;
+        }
+
+        thead {
+            font-size: 1.5rem;
+        }
+
+        tbody {
+            font-size: 1rem;
+        }
+
+        .button {
+            display: block;
+            height: 50px;
+            width: 175px;
+            margin: 30px auto 60px;
+            border-radius: 4px;
+            text-align: center;
+            background-color: #2b373a;
+            color: #fbeee4;
+            font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    
+        .button.red {
+            background-color: red;
+        }
+    }
+}

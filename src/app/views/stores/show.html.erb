@@ -24,38 +24,40 @@
   </div>
 </div>
 
-<div class="product-wrap">
-  <div class="product-item-wrap">
-    <% @products.each do |product| %>
-      <div class="product-item">
-        <%= link_to product, id: "link" do %>
-        <figure class="product-preview">
-          <%= image_tag product.image %>
-        </figure>
-        <div class="product-info">
-          <h4 class="product-info-header"><b><%= product.name %></b></h4>
-          <p class="product-description"><%= product.description %></p>
-          <h5 class="product-category"><%= product.category %></h5>
-          <p class="price"><b><span>$</span><%= product.price %></b></p>
-        </div>
-        <% end %>
-        <hr class="line-separator">
-        <div class="product-user-info">
-          <a href="#"><p class="product-user"><b><%= @store.store_name %></b></p></a>
-          <p class="product-user-rating">Rating Placeholder</p>
-        </div>
-        <% if !user_signed_in? %>
-        <% elsif current_user.id != @store.user_id%>
-          <div class="button-wrap">
-            <%= link_to 'Add to Cart', new_product_order_path, class: "button green" %> 
+<% unless @products.empty? %>
+  <div class="product-wrap">
+    <div class="product-item-wrap">
+      <% @products.each do |product| %>
+        <div class="product-item">
+          <%= link_to product, id: "link" do %>
+          <figure class="product-preview">
+            <%= image_tag product.image %>
+          </figure>
+          <div class="product-info">
+            <h4 class="product-info-header"><b><%= product.name %></b></h4>
+            <p class="product-description"><%= product.description %></p>
+            <h5 class="product-category"><%= product.category %></h5>
+            <p class="price"><b><span>$</span><%= product.price %></b></p>
           </div>
-        <% elsif current_user.id == @store.user_id %>
-          <div class="button-wrap">
-            <%= link_to 'Edit', edit_product_path(id: product.id), class: "button" %>
-            <%= link_to 'Delete', product_path(id: product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button red" %>
+          <% end %>
+          <hr class="line-separator">
+          <div class="product-user-info">
+            <a href="#"><p class="product-user"><b><%= @store.store_name %></b></p></a>
+            <p class="product-user-rating">Rating Placeholder</p>
           </div>
-        <% end %>  
-      </div>
-    <% end %>
+          <% if !user_signed_in? %>
+          <% elsif current_user.id != @store.user_id%>
+            <div class="button-wrap">
+              <%= link_to 'Add to Cart', new_product_order_path, class: "button green" %> 
+            </div>
+          <% elsif current_user.id == @store.user_id %>
+            <div class="button-wrap">
+              <%= link_to 'Edit', edit_product_path(id: product.id), class: "button" %>
+              <%= link_to 'Delete', product_path(id: product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button red" %>
+            </div>
+          <% end %>  
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
