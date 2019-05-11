@@ -104,7 +104,8 @@
             <% end %>
             <p class="product-user-rating">Rating Placeholder</p>
             </div>
-            <% if user_signed_in? && current_user.id != product.store.id %>
+            <% if !user_signed_in? %>
+            <% elsif current_user.id != product.store.id %>
                 <div class="button-wrap">
                     <%= link_to 'Add to Cart', new_product_order_path, class: "button green" %> 
                 </div>
