@@ -5,14 +5,16 @@
     <table>
       <thead>
         <tr>
+          <th>Store ID</th>
           <th>Store Name</th>
-          <th colspan="1"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @stores.each do |store| %>
           <tr>
+            <td><%= store.id %></td>
             <td><%= store.store_name %></td>
             <td><%= link_to 'Show Store', store, class: "button" %></td>
             <td><%= link_to 'Remove Store', store, method: :delete, data: { confirm: 'Are you sure?' }, class: "button red" %></td>

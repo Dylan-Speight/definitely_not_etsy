@@ -3,11 +3,17 @@
     <div class="product-title-wrap">
         <div class="product-title">
             <h1>NEW PRODUCT</h1>
+            <div class="title-underline"></div>
         </div>
-        <div class="title-underline"></div>
     </div>
 
-    <%= render 'form', product: @product %>
+    <div class="new-product-form">
+        <h2>
+            Enter your product details here. If you do not provide
+            an image, a placeholder image will be attached to your
+            product that you can edit/change at any time.
+        </h2>
+        <%= render 'form', product: @product %>
+    </div>
 
-    <%= link_to 'Back', products_path %>
 </div>
