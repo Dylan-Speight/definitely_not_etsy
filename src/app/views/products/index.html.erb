@@ -11,19 +11,21 @@
     <% @products.each do |product| %>
       <div class="product-item">
         <%= link_to product, id: "link" do %>
-        <figure class="product-preview">
-          <%= image_tag product.image %> 
-        </figure>
-        <div class="product-info">
-          <h4 class="product-info-header"><b><%= product.name %></b></h4>
-          <p class="product-description"><%= product.description %></p>
-          <h5 class="product-category"><%= product.category %></h5>
-          <p class="price"><b><span>$</span><%= product.price %></b></p>
-        </div>
+          <figure class="product-preview">
+            <%= image_tag product.image %> 
+          </figure>
+          <div class="product-info">
+            <h4 class="product-info-header"><b><%= product.name %></b></h4>
+            <p class="product-description"><%= product.description %></p>
+            <h5 class="product-category"><%= product.category %></h5>
+            <p class="price"><b><span>$</span><%= product.price %></b></p>
+          </div>
         <% end %>
         <hr class="line-separator">
         <div class="product-user-info">
-          <a href="#"><p class="product-user"><b><%= product.store_name %></b></p></a>
+          <%= link_to store_path(id: product.store.id) do %>
+            <p class="product-user"><b><%= product.store_name %></b></p>
+          <% end %>
           <p class="product-user-rating">Rating Placeholder</p>
         </div> 
       </div>
