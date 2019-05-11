@@ -6,8 +6,9 @@
         sed do eiusmod tempor incididunt ut labore.</p>
         <div class="search-widget">
             <form class="search-widget-form">
-				<input type="text" name="category_name" placeholder="This is a placeholder search form">
-                <button class="button">Search Now!</button>
+                <%= form_for "", url: products_path, role: "search", method: :get do %>
+                    <%= text_field_tag :search, @search_term, placeholder: "Search products..." %>
+                <% end %>
             </form>
         </div>
     </div>

@@ -5,6 +5,9 @@ class ProductOrdersController < ApplicationController
   # GET /product_orders.json
   def index
     @product_orders = ProductOrder.all
+    unless current_user.has_role? :admin
+      redirect_to root_path
+    end
   end
 
   # GET /product_orders/1

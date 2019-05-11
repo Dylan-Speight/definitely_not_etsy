@@ -77,10 +77,12 @@ class UsersController < ApplicationController
 
     def correct_user
       @correct_user = User.find(params[:id])
-      if current_user == nil
-        redirect_to root_path 
-      elsif current_user != @correct_user
-        redirect_to user_path(id: current_user.id)
+      unless current_user.has_role? :admin
+        if !user_signed_in?
+          redirect_to root_path 
+        elsif current_user != @correct_user
+          redirect_to user_path(id: current_user.id)
+        end
       end
     end
 

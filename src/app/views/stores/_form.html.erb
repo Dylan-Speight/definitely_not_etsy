@@ -16,7 +16,11 @@
     <%= form.text_field :store_name %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button-wrap">
+    <div class="button actions">
+      <%= form.submit %>
+    </div>
+    <%= link_to 'Back', products_path, class: "button" %>
   </div>
+  
 <% end %>

@@ -54,12 +54,12 @@ input {
         }
 
         .search-widget {
-            height: 142px;
+            height: 90px;
             width: 100%;
-            padding: 28px 0 0;
+            padding: 35px 0 0;
             margin: 0 auto;
             position: relative;
-            bottom: -190px;
+            bottom: -210px;
             background: image-url("searchbar_texture.png") no-repeat center, linear-gradient(to right, #71def4, #ed73e1);
             background-size: cover;
             border-radius: 4px;
@@ -124,8 +124,8 @@ input {
 
 .services-wrap {
     background-color: #ffffff;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 80px;
+    padding-bottom: 30px;
 
     .services {
         display: flex;

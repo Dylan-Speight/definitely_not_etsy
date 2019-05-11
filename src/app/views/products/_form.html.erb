@@ -11,36 +11,44 @@
     </div>
   <% end %>
 
-  <div>
-  <%= form_for "", url: products_path, role: "search", method: :get do %>
-  <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %> 
-
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
+  <hr class="line-separator">
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category %> 
+  </div>
+
+  <hr class="line-separator">
 
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
+  <hr class="line-separator">
+
   <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
+
+  <hr class="line-separator">
 
   <div class="field">
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="button-wrap">
+    <div class="button actions">
+      <%= form.submit %>
+    </div>
+    <%= link_to 'Back', products_path, class: "button" %>
   </div>
+  
 <% end %>
