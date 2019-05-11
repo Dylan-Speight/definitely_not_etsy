@@ -1,5 +1,13 @@
-<h1>NEW PRODUCT</h1>
+<div class="new-product-wrap">
 
-<%= render 'form', product: @product %>
+    <div class="product-title-wrap">
+        <div class="product-title">
+            <h1>NEW PRODUCT</h1>
+        </div>
+        <div class="title-underline"></div>
+    </div>
 
-<%= link_to 'Back', products_path %>
+    <%= render 'form', product: @product %>
+
+    <%= link_to 'Back', products_path %>
+</div>
