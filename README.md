@@ -57,7 +57,16 @@ Our application allows any user to peruse products, although only authenticated 
 
 ### Site Screenshots
 
+**Home Page Pt. 1:**
 
+![picture](docs/Itzy-Home-Page-1-SS.png)
+
+**Home Page Pt. 2:**
+
+![picture](docs/Itzy-Home-Page-2-SS.png)
+
+**Example Store Page:**
+![picture](docs/Itzy-Store-Page.png)
 
 ### Tech Stack Rundown (SAQ 5 & 10)
 *5. Identify and describe the software to be used in your App.*
@@ -162,11 +171,13 @@ Next page for products and limiting total products on products show page, rather
 
 ### Project Plan
 
-Rough site plan on paper (link image),
+Going into this project we knew that planning was going to be important as an application has many more parts to it than a static page such as our portfolios. Database design, user stories, wireframing, and workflow style (agile methodology & source control process) were all going to be important elements to be successful in developing this project.
+
+We first sat down to just get some basic high level application ideas on paper and settled on our 'User Store' style marketplace. 
 
 ![picture](docs/Paper-Planning.jpg) 
 
-from there user stories in Trello, ERD based on user stories and from there wireframing.
+From here we went on to create our User Stories, which then gave us the floorplan so to speak for our database design. We kne what information we needed to store, and how these tables of data were likely to be linked. Dylan went ahead and worked on the Entity Relationship Diagram (ERD), while I got started on the wireframing for the website. We came back together with these finished and made a Trello board outlining what we needed to get done. A more detailed outline of this process can be found in the following sections.
 
 ### Entity Relationship Diagram/Database Design Planning (SAQ 14)
 *14.  Provide your database schema design.*
@@ -219,17 +230,25 @@ Finished:
 ### Task Allocation (SAQ 17)
 *17. Describe the way tasks are allocated and tracked in your project.*
 
-Tasks were allocated through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant, we tried to simulate a real software development environment as possible, just to get comfortable with a workflow our future employers will likely have in place. Dylan tended to take tasks more related to the back-end of our application i.e. the controllers and their relationship with the models , while I took tasks with more front-end related elements i.e. views, and their relationship with the model.
+Tasks were allocated through discussion with one another, each day deciding what we would work on from the list of tasks allocated for the current sprint. To ensure we were on the same page we then placed a "Person working on this task" label on the corresponding Trello card. While this may seem a bit redundant with only two people collaborating on a project, we tried to simulate as real as software development environment as possible, just to get comfortable with one workflow our future employers may likely have in place. Dylan tended to take tasks more related to the back-end of our application i.e. the controllers and their relationship with the models , while I took tasks with more front-end related elements i.e. views, and their relationship with the model.
 
 ### Agile Methodology (SAQ 18)
 *18. Discuss how Agile methodology is being implemented in your project.*
 
 We decided from the outset of this project that we would attempt to use a feature oriented, sprint-based approach to development. This was a new experience for both of us. We set up three day sprints during which we would try to get a certain set of features/user stories finished. The decision making process behind which features/user stories we assigned to each sprint took into account two factors. The first was total time; we didn't want to assign more work than we thought we could finish based on estimated time allotments for each task. The second was how that feature fit into the overall design of our product. We wanted to develop features in a way that would make sense allow the building process to flow smoothly i.e. we wanted users to be able to register and sign-in first before we worried about how they would edit their profile.
 
+We encountered two main problems attempting this methodology for the first time. The first was poor time estimation for task completion. We set tried to estimate the time each task would take us to complete and then assigned tasks to each sprint accordingly. More often than not, these tasks ended up taking much longer than expected to complete and this created a backlog of tasks moving into each subsequent sprint. On the bright side, was a good lesson in learning how long certain tasks can take depending on the problems you run into, we can use this knowledge moving forward to better plan projects.
+
+The second was running into unexpected tasks/problems. This project taught us that there are often unforeseeable issues/bugs that you will inevitably run into throughout the duration of a project, such as Heroku deployment issues, or a bug you just can't seem to get past. The takeaway from this was to give each sprint a buffer of 'spare time' to allow for these complications. 
+
 ### Source Control Process (SAQ 19)
 *19.  Provide an overview and description of your Source control process.*
 
-We chose to use a feature branching workflow for this project. For each new feature/user story that we were addressing we 
+We chose to use a feature branching workflow for this project. Dylan set up a Github repository after we finished our project planning and added me as a contributor. We then created feature branches for each new feature or task we had set out to complete according to our sprints & task allocation. It took us a little while to get used to collaboration, but by the end of the project it began to feel quite natural making a branch, making changes, pushing them up to Github, creating a pull request and getting your code reviewed, and then getting that branch merged into the master branch.
+
+One issues we both ran into was that we would find ourselves naming branches too specifically and then working on multiple other things unrelated to the branch name. This problem could be solved in the future by either making more generally named branches, or being a little bit more strict with what work we are doing in that feature branch.
+
+While we understand that it is normal practice to delete feature branches after a pull request has been merged we thought that it would be helpful to show our source control process by showing our pull request history over the course of the project. This screenshot can be seen below:
 
 ![picture](docs/Pull-Requests.png)
 
@@ -246,7 +265,7 @@ Gem verificiation (supply chain poisoning)
 
 
 22/
-Devise Rolify Good routing MFA
+Devise Rolify Good routing MFA Stripe
 
 
 
