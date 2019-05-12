@@ -35,13 +35,19 @@
         <% if !user_signed_in? %>
         <% elsif current_user.id != product.store.user_id %>
           <div class="button-wrap">
-              <%= link_to 'Add to Cart', new_product_order_path, class: "button green" %> 
+              <%# <%= link_to 'Add to Cart', new_product_order_path, class: "button green" %>  
+              <%= form_tag product_orders_path do %>
+                <%= hidden_field_tag :product_id, product.id %>
+                <%= number_field_tag :quantity, 1 %>
+                <%= submit_tag "Add to cart", class: "button" %>
+              <%# <%= end %> 
           </div>
-        <% elsif current_user.id == product.store.user_id %>
+        <%# <% elsif current_user.id == product.store.user_id %> 
           <div class="button-wrap">
               <%= link_to 'Edit', edit_product_path(id: product.id), class: "button" %>
               <%= link_to 'Delete', product_path(id: product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button red" %>
           </div>
+        <% end %>
         <% end %>
       </div>
     <% end %>
