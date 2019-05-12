@@ -18,10 +18,9 @@
     - [Heroku - What Is It? (SAQ 4)](#heroku---what-is-it-saq-4)
     - [Heroku - Running a Database in the Cloud & DBMS Selection (SAQ 6 & 7)](#heroku---running-a-database-in-the-cloud--dbms-selection-saq-6--7)
     - [Instructions for App Use](#instructions-for-app-use)
-  - [Design Documentation](#design-documentation)
-    - [Design Process](#design-process)
-    - [Workflow Diagram of the User Journey/s](#workflow-diagram-of-the-user-journeys)
+  - [Design Documentation & Process](#design-documentation--process)
     - [Application Architecture (SAQ 8 & 9)](#application-architecture-saq-8--9)
+    - [Workflow Diagram of the User Journey/s](#workflow-diagram-of-the-user-journeys)
     - [Database Design (SAQ 11-13)](#database-design-saq-11-13)
     - [Test Driven Development (SAQ 20)](#test-driven-development-saq-20)
     - [Future Development](#future-development)
@@ -47,13 +46,13 @@
 *2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?*  
 *3. Describe the project will you be conducting and how your App will address the needs.*  
 
-While Etsy and Ebay fill the 'User Store' marketplace, we identified them as being successful for different reasons. Ebay allows users to sell whatever they wanted with good search functionality to accomodate for it's broad scope. Etsy is focused more on user created items and craft goods, but with a much more appealing interface and design layout that makes it easy to use, and identify highly-rated products/stores.
+While Etsy and Ebay fill the 'User Store' marketplace, we identified them as being successful for different reasons and felt we could combine both of their successful traits. Ebay allows users to sell whatever they wanted with good search functionality to accomodate for it's broad scope. Etsy is focused more on user created items and craft goods, but with a much more appealing interface and design layout that makes it easy to use, and identify highly-rated products/stores.
 
 We feel as though there is a gap in the market for an application that combines both of the traits of these highly successful websites. We set out to design a general purpose marketplace that was both fun and easy to navigate. We wanted users feel as though they were able to find what they were looking for easily, and find themselves interacting with more personal stores that something that you might find on Ebay, which feel more like retail outlets rather than real people.
 
 ### Functionality & Features
 
-Our application allows any user to peruse products, although only authenticated users will be able to purchase products. Users can edit their view and edit their cart, and then pay for their order using Stripe as a third party for payment. Authenticated users can set up a store, and are able to define a category for their store, and provide a name (must be unique), and description for it. Store owners can create products for their store, with the ability to provide it an image, name, description, and price. Admins have permissions to delete users, and stores through stylised, private administrator panels. The use case for allowing these permissions was determined to be for handling users/stores that are creating inappropriate products. The footer features a live counter of the current number of users, stores, and products the application currently has in it's database. This counter will only update on refresh, and is one of the drawbacks of using something like embedded Ruby over asynchronous Javascript that would update as the data in the back-end changed.
+Our application allows any user to peruse products, although only authenticated users will be able to purchase products. Users can edit their view and edit their cart, and then pay for their order using Stripe as a third party for payment. Authenticated users can set up a store, and are able to define a category for their store, and provide a name, and description for it. Store owners can create products for their store, with the ability to provide it an image, name, description, and price. Admins have permissions to delete users, and stores through stylised, private administrator panels. The use case for allowing these permissions was determined to be for handling users/stores that are creating inappropriate products. The footer features a live counter of the current number of users, stores, and products the application currently has in it's database. This counter will only update on refresh, and is one of the drawbacks of using something like embedded Ruby over asynchronous Javascript that would update as the data in the back-end changed.
 
 ### Site Screenshots
 
@@ -107,7 +106,7 @@ Heroku enables source control by acting as a Git remote repository. We are able 
 
 The build mechanism Heroku runs when deploying web applications is different based on the language of the application. In the instance of RoR, will load the source code, retrieve the dependencies from the Gemfile, and generate any necessary files from the asset pipeline (a RoR framework compress and minify JavaScript, CSS, and image assets). This build mechanism assembles these components and generates what is known as a 'slug' - a pack of ready to run code with the instructions to run it. 
 
-The slug contains a few other bits and pieces as well. These are the config variables and add-ons. Config variables (Heroku's .env file) are independent configurations that sit outside of the application source code, that contain sensitive information such as API secrets/passwords/keys and database passwords. These can be altered at any given point via the Command Line Interface or the application dashboard on the Heroku website. An add-on is a third-party cloud service that provides additional functionality to your build with easy integration. Our application did not use any add-ons. 
+The slug contains a few other bits and pieces as well. These are the config variables and add-ons. Config variables (Heroku's .env file) are independent configurations that sit outside of the application source code, that contain sensitive information such as API secrets/passwords/keys and database passwords. These can be altered at any given point via the Command Line Interface or the application dashboard on the Heroku website. An add-on is a third-party cloud service that provides additional functionality to your build with easy integration. Our application did not use any add-ons outside of our PostgreSQL provision. 
 
 Heroku enables easy build rollback through the implementation of build releases. A release is a combination of the the buildpack slug and the config variables. Whenever either is altered a new release is produced. A developer can at any time rollback their deployment to a previous release.
 
@@ -117,72 +116,168 @@ Dynos can run various different web and queue processes required by our web appl
 
 Our web application runs on a free dyno which will sleep after periods of inactivity. It will be awakened by any incoming HTTP traffic, after a short delay. This suits an assessment style web deployment, but a real web application with regular end users would require another non-free dyno type.
 
-Small one-off dynos can run for simple input/output operations. This is useful for tasks such as running a shell linked to your web application, allowing you to execute temporary non-destructive/transformative commands such as accessing the console i.e. changes made on one of these IO dynos won't be reflected on your other dynos.
+Small one-off dynos can be run for simple input/output operations. This is useful for tasks such as running a shell linked to your web application, allowing you to execute temporary non-destructive/transformative commands such as accessing the console i.e. changes made on one of these IO dynos won't be reflected on your other dynos.
 
 Dynamic scaling of dynos accomodate for the scaling needs of web applications e.g. increased web traffic as an application's user base grows.
 
 Heroku also takes logs from all of the running dynos for your web application, through the Logplex, allowing developers access to information that may help in the debugging process, when having deployment or runtime issues.
 
 ### Heroku - Running a Database in the Cloud & DBMS Selection (SAQ 6 & 7) 
-*6. Identify the database to be used in your App and provide a justification for your choice.*
-*7. Identify and describe the production database setup (i.e. postgres instance).*
+*6. Identify the database to be used in your App and provide a justification for your choice.*  
+*7. Identify and describe the production database setup (i.e. postgres instance).*  
 
-While there appears to be much debate across the web as to what database management solutions (DBMS) are the 'best' I think the more appropriate question is what is the most appropriate DBMS for our application. RoR is relatively DBMS agnostic, allowing the developer to select what they deem appropriate from the wide selection available to them.
+While there appears to be much debate across the web as to what database management solutions (DBMS) are the 'best' I think the more appropriate question is what is the most appropriate DBMS for our application. RoR is relatively DBMS agnostic, allowing the developer to select what they deem appropriate from the wide selection available to them. In years gone by PostgreSQL has been seen as a reliable but slightly slower alternative to mySQL, but supported transactions. This has seen a change in years with PostgreSQL speeding up, and mySQL now supporting transactions. PostgreSQL is very extensive in it's capabilities while mySQL was seen as a more simple but straightforward solution. Both are open-source solutions.
 
-PostgreSQL was our choice of DBMS. It is an open-source
+PostgreSQL was our choice of DBMS. I say choice, as it would likely have been our choice, but in reality deploying to Heroku forced us to use PostgreSQL, as it is their DBMS of choice. PostgreSQL would likely have been our choice as learning more a complicated but feature-rich applications tends to be a good time investment in the long run.
+
+Heroku justifies their choice for three reasons: operational experience allowing them to develop useful runtime features, fantastic support and guidance from long-time use of one of the largest PostgreSQL fleets in the world, and easy management by minimising the amount of user database setup or maintenance. Sounds pretty good to me. A far more detailed description of the additional features they provide is available on their website @ https://www.heroku.com/postgres.
+
+On deployment Heroku can detect a PostgreSQL development environment. If one is not present it will request one is created (at least this is the case for RoR). This database will not contain any data you have stored locally in your development database. You will need to provide it with its own data, whether that is manually through the application or via a seed file. The instance used for your production environment will be located on a Heroku server, closest to the region the application is deployed from.
+
+Heroku provides a feature-rich database environment for developers, allowing them to run multiple Postgres instances for a single app, allowing database linking between applications, extensive logging, database health diagnosis, and local environment access to the database (provided users connect via SSL).
 
 ### Instructions for App Use
-HOW DOES A USER USE THE SITE
+***NB: If you want to contribute please first fork the repo.***
 
-If you want to contribute please first fork the repo.
+Prerequisites: 
+- PostgreSQL installation
+- Bundler installed
 
-How would a user clone our repo an get it working if they wanted to help contribute
+If you would like to run our application locally you can make a local copy you can clone this repository through the command line using:
+
+`$ git clone https://github.com/Dylan-Speight/definitely_not_etsy.git`
+
+Inside of the directory that you cloned, while still in command line, type:
+
+`bundle install`
+
+Update the .env file with your database username and password, and Cloudinary/Stripe API information.
+
+From inside of the directory run:
+
+`rails db:setup`
+
+and:
+
+`rails s`
+
+Then visit localhost:3000 and you should be ready to go!
 
 
-## Design Documentation
-### Design Process
-Design choices // Accessability // Usability // Performance // Challenges (Should have utilised something like bootstrap/bulma - made reused all own elements and used significantly more time that would have + result wasn't as nice since no time to really refine it > Some user stories a bit limited in scope, didn't really take into account what it meant in rails to view store products - should have been view store, THEN view products in store, THEN add products to store)
+## Design Documentation & Process
+### Application Architecture (SAQ 8 & 9)
+*8. Describe the architecture of your App.*  
+*9. Explain the different high-level components (abstractions) in your App.*  
+
+RoR is a Model, View, Controller (MVC) framework/architecture, which we subsequently employ in our web application. Generally speaking MVC is an application design paradigm frequently used in object-oriented programming. It is designed to allow user input and call upon data based on their interaction with the application. The mechanics of this take place within the three separate components of the MVC framework, that is the Model, the View, and the Controller, in a way that allows granular control of this process. Put simply:
+
+- **The Model**
+  - Handles the back-end data and relational logic (normalised relational database)
+- **The Controller**
+  - For handling the user's input from the user interface within the application
+- **The View**
+  - Represents the outcome of the input in a graphical way to the end-user
+
+A typical flow through a MVC framework in RoR is as follows:
+
+1. The client (via their browser) sends a request to the web application
+2. The router determines which Controller and subsequent action handles user's request
+3. The controller pulls the appropriate data from the corresponding Model to respond to the request and passes it onto the View
+4. The View renders the information to the end-user
+
+We applied the four typical CRUD (Create, Read, Update, Delete) functions via Rails inbuild scaffolding generator to help us handle the expected needs of our end-users for this project and build out the high-level components for our application.
+
+These components were:
+
+- **Users**
+  - The primary audience of our website
+  - Able to register and become authenticated
+  - Able to edit personal information or delete account
+  - All users can are by default buyers, able adding products to their orders
+  - Can potentially be sellers if they chose to set up a store
+  - Some users are admins, able to delete other users, stores, and products
+- **Stores**
+  - A user can have a store which allows them to sell products
+  - Able to edit their store information
+  - Can delete their store if they wish
+- **Products**
+  - The items that sellers have in their store
+  - Have their own set of information including a product image
+  - Can be removed or edited at any point
+- **Orders**
+  - The list of products that a user has selected to purchase
+  - Allows users to view their history of previous orders
 
 ### Workflow Diagram of the User Journey/s
 
-### Application Architecture (SAQ 8 & 9)
-*8. Describe the architecture of your App.*
-*9. Explain the different high-level components (abstractions) in your App.*
+![picture](docs/User-Workflow-Diagram.jpg)
 
-Use MVC model
-
-High level = Users are all buyers. Some are sellers. Admins are another role like sellers.
 
 ### Database Design (SAQ 11-13)
-*11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).*
-*12. Discuss the database relations to be implemented.*
+*11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).*  
+*12. Discuss the database relations to be implemented.*  
 *13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.*
 
-Etsy & Ebay utilise similar high-level structure
+**Etsy**
+
+Etsy while likely having very similar in terms of high-level components Etsy obviously operates on a much larger scale than us, and may implement their category system with a Model structure of its own with each product referencing a specific category and/or subcategory. I imagine this probably helps them with database responsiveness and data classification for look at user trends/metrics.
+
+One comment I found on StackOverflow from someone claiming to be an Etsy system administator discussed using sharding. Sharding is the process of splitting data across lots of different database servers. They have another set of database servers dedicated solely to indexing, helping them find data on the shards.
+
 
 - *User Model*
-    - devise  
-        - FILL OUT DEVISE MODEL STUFF
-    - has_one :store
-        - A user can choose to have a store. has_one specifies a one-to-one relationship i.e. a user can only have one store. Without specific validation it allows the user to exist without any link to a store i.e. in this circumstance, a user can have a store, but does not have to.  
-    - has_many :orders
-        - A user can make many different product orders. This relationship enables users to access their own previous order details by pulling all order table entries referencing for that specific user_id    
+  - devise  
+    - Describes the attributes that Devise has with the User model. On a high-level these attributes are that they are able to register and authenticate, able to recover their password, allow their details to be remembered via cookie, and validatable.
+  - has_one :store
+    - A user can choose to have a store. has_one specifies a one-to-one relationship i.e. a user can only have one store. Without specific validation it allows the user to exist without any link to a store i.e. in this circumstance, a user can have a store, but does not have to.  
+  - has_many :orders
+    - A user can make many different product orders. This relationship enables users to access their own previous order details by pulling all order table entries referencing for that specific user_id    
 - *Store Model*  
-    - belongs_to :user
-        - A store must belong to a user. For a entry to be created in the Store table, it must reference a user_id. This means a person visiting the site cannot create a store without first creating a regular user account. This provides a layer of authentication and prevents stores from easily being spam created.
-    - has_many :products
-        - A store can have many products. This relationship is relatively self-explanatory. Any store should be able to stock many different items. Any other relationship would not really make sense here.
+  - belongs_to :user
+    - A store must belong to a user. For a entry to be created in the Store table, it must reference a user_id. This means a person visiting the site cannot create a store without first creating a regular user account. This provides a layer of authentication and prevents stores from easily being spam created.
+  - has_many :products
+    - A store can have many products. This relationship is relatively self-explanatory. Any store should be able to stock many different items. Any other relationship would not really make sense here.
 - *Product Model*
+  - belongs_to :store & validates :store_id, presence: true
+    - A product must belong to a store. A guest user cannot create a identity-less product. validate :store_id will not allow product creation to proceed even if a guest user was somehow able to access the product creation (which routing should not allow them to do).
+  - has_many :product_orders
+    - Allows the same product_id to exist many times in the ProductOrder joining table. A product may be in many different orders, as you would expect many different users to be ordering the same product. If a user did not want more than one to be sold, we plan in future iterations to allow quantity of stock to be an entry in the Product table.
+  - delegate :store_name, to :store
+    - A small helper which changes the output of the .store method when called on a product. This will delegate that attribute from store_id to store_name, allowing us to easily call @product.store rather than @product.store_name and receive the stores name as output. This was only possible as we did not really need the store_id (the normal output from @product.store) in the view at all as an attribute of a given product's store.
+  - has_one_attached :image
+    - Lets the model to know to possibly (not definitely) expect an image in Active Storage. This relationship does not necessarily require an image to be attached, but in our instance one is forcibly put there. This maps sets up a one to one relationship between active_storage.service file and the Product model.
+  - after_commit :has_image, on [:create, :update]
+    - This object callback allows us to access the object being created or updated just prior to it bring saved. This specific callback checks the file after an object creation or update for an image attachment. Unless it finds an image attached it will add a default one from our asset pipeline. The associated helper method is shown below:
+```
+def has_image
+    unless image.attached?
+        self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'placeholder.png')), filename: 'placeholder.png', content_type: 'image/png')
+    end
+end
+``` 
 - *Order Model*
+  - has_one :user
+    - An order must belong to a given user. An order should not be allowed to exist without assocation with someone purchasing said order.
+  - has_many :store_orders
+    - The other side of the StoreOrder joining table's relationship. An order should be allowed to have many different products. Without allowing many here an user would be limited to order a single product at a time.
 - *ProductOrder Model*
+    - RoR models do not allow for many to many relationships by default
+    - To bypass this limitation we create many to many relationship by association via a joining table
+    - Both ends of the many to many relationship reference the joining table model with a has_many relationship, as described in the respective model above.
+    - Here we include a belongs_to for both models i.e. Product & Order to complete this relationship and connect the two Models with a many to many relationship.
+- *Role Model*
+  - has_and_belongs_to_many :users, :join_table => :users_roles 
+    - Rolify creates its on UsersRoles table that contains the authorisation data for the User model. This appends that tables information to the User table object information and describes a relationship where a user may have and belong to set roles in the UserRoles table such as admin.
+- *Common Among Models*
+    - resourcify
+      - Identifies the resource models that you wish Rolify roles applied to.
 
 ### Test Driven Development (SAQ 20)
 *20. Provide an overview and description of your Testing process.*
 
+Test Driven Development (TDD) is as a concept describes a development process whereby tests are created before the code that they are actually testing. This encourages developers to produce concise, elegant, and functinoal code that simply fulfils the requirements of their testing (which in turn describe their design requirements). 
 
-DESCRIBE TDD
-
-
+RSpec is a Ruby testing tool that is frequently used within a TDD environment for production applications. RSpec tests equality between expected and actual runtime code outcomes through assertations. For example, when a user signs in, that they are actually authenticated and have a valid session. We chose RSpec as our testing solution for this assessment.
 
 I created a RSpec shell script that when called from the RSpec folder with an appropriate test file path would run the file, print the output to terminal and also tee the output to a rspec.log file. This would allow us to easily collate the results of our testing process. The script was simple, so I've included it as a code block below:
 
@@ -283,9 +378,9 @@ From here we went on to create our User Stories, which then gave us the floorpla
 
 ![picture](docs/Entity-Relationship-Diagram.png)
 
-Did not need to store images locally except those that were used for backgrounds etc. 
+To facilitate image upload for products we emplyed Active Storage. While not displayed in this ERD,  image data that was associated with the Product model was stored with Cloudinary. Active Storage does sets up two tables in our PostgreSQL database, active_storage_blobs, and active_storage_attachments - neither of which are reflected in our ERD as they are not directly related to our higher level application components, they simply act as an intermediary allowing image attachment to individual products.
 
-Even these maybe should've been uploaded to the cloud for faster load. 
+After declaring Cloudinary as a service in our config/storage.yml and setting our API cloud name/key/secret in our .env file (and in config vars on Heroku), we set our Rails.application.config.active_storage.service to Cloudinary, identifying it to Active Storage as the expected location to find these image files.
 
 ### User Stories (SAQ 15)
 *15. Provide User stories for your App.*
@@ -354,9 +449,13 @@ While we understand that it is normal practice to delete feature branches after 
 ![picture](docs/Pull-Requests.png)
 
 ### Protecting User Data and Our Legal Obligations Regarding Information Security (SAQ 21-23)
-*21. Discuss and analyse requirements related to information system security.*
-*22. Discuss methods you will use to protect information and data.*
+*21. Discuss and analyse requirements related to information system security.*  
+*22. Discuss methods you will use to protect information and data.*  
 *23. Research what your legal obligations are in relation to handling user data.*
+
+If an application is anything more than an a piece of assessment/hobby creation i.e. has real end-users, a myriad of considerations must be made for information security. A developer must handle both their legal obligations  
+
+
 
 
 21/
