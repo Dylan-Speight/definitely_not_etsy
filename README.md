@@ -43,9 +43,9 @@
 
 ## Project Description
 ### Problem Definition & Purpose (SAQ 1-3)
-*1. What is the need (i.e. challenge) that you will be addressing in your project?*
-*2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?*
-*3. Describe the project will you be conducting and how your App will address the needs.*
+*1. What is the need (i.e. challenge) that you will be addressing in your project?*  
+*2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?*  
+*3. Describe the project will you be conducting and how your App will address the needs.*  
 
 While Etsy and Ebay fill the 'User Store' marketplace, we identified them as being successful for different reasons. Ebay allows users to sell whatever they wanted with good search functionality to accomodate for it's broad scope. Etsy is focused more on user created items and craft goods, but with a much more appealing interface and design layout that makes it easy to use, and identify highly-rated products/stores.
 
@@ -57,22 +57,20 @@ Our application allows any user to peruse products, although only authenticated 
 
 ### Site Screenshots
 
-**Home Page Pt. 1:**
-
+**Home Page Pt. 1:**  
 ![picture](docs/Itzy-Home-Page-1-SS.png)
 
-**Home Page Pt. 2:**
-
+**Home Page Pt. 2:**  
 ![picture](docs/Itzy-Home-Page-2-SS.png)
 
-**Example Store Page:**
+**Example Store Page:**  
 ![picture](docs/Itzy-Store-Page.png)
 
 ### Tech Stack Rundown (SAQ 5 & 10)
-*5. Identify and describe the software to be used in your App.*
+*5. Identify and describe the software to be used in your App.*  
 *10. Detail any third party services that your App will use.*
 
-We used Ruby on Rails (RoR) as the framework for this application's development. The base for each page was built using HTML5 and styled using CSS (utilising SCSS). A minimal amount of Javascript was used to create the toggle functionality for the hamburger/user menus in the navigation bar. The application was deployed to Heroku, a platform as a service (PaaS) provider, allowing build and run an application that exists in the cloud. We called the Google Fonts API to import our font choice, 'Work Sans', and the Font Awesome CDN to utilise some groovy little icons throughout our web application.
+We used Ruby on Rails (RoR) as the framework for this application's development. The base for each page was built using HTML5 and styled using CSS (utilising SCSS). A minimal amount of Javascript was used to create the toggle functionality for the hamburger/user menus in the navigation bar. The application was deployed to Heroku, a Platform as a Service provider, allowing us to build and run an application that exists in the cloud. We called the Google Fonts API to import our font choice, 'Work Sans', and the Font Awesome CDN to utilise some groovy little icons throughout our web application.
 
 **Ruby Version:** 2.6.2
 
@@ -99,11 +97,43 @@ We used Ruby on Rails (RoR) as the framework for this application's development.
 ### Heroku - What Is It? (SAQ 4)
 *4. Describe the network infrastructure the App may be based on.*
 
+Heroku as mentioned above is a Platform as a Service (PaaS) which runs our application in the cloud, removing the need for us to be resource and run our own production environment (that is where end users will actually interact with the application).
+
+Applications deployed to Heroku typically contain source code from a supported language (Heroku is a polyglot platform currently Ruby, Node.js, Java, Python, Clojure, Scala, Go and PHP), a description of any dependencies - i.e. as gems in our case - and a Procfile. A procfile is a list of process types which are named commands that we want to executed against our source code during deployment. Fortunately things are made easy for us, as Heroku is able to detect that we are running RoR, and will load our list of dependencies from our Gemfile, and removes the need for a Procfile by simply running Puma, the inbuilt ready-to-go out of the box Rails web server. More simply, an application is source code, bundled with a description of dependencies and a set of instructions on what to run in the source code.
+
+Heroku enables source control by acting as a Git remote repository. We are able to push our code to Heroku instead of Github by slightly altering the normal Github push command and running: 
+
+`$ git push heroku master`
+
+Here Heroku will 
+
+*The build mechanism is typically language specific, but follows the same pattern, typically retrieving the specified dependencies, and creating any necessary assets (whether as simple as processing style sheets or as complex as compiling code). For example, when the build system receives a Rails application, it may fetch all the dependencies specified in the Gemfile, as well as generate files based on the asset pipeline. Output are assembled into a slug.*
+
+*Think of a running dyno as a lightweight, secure, virtualized Unix container that contains your application slug in its file system. Your application’s dyno formation is the total number of currently-executing dynos, divided between the various process types you have scaled. When you deploy a new version of an application, all of the currently executing dynos are killed, and new ones (with the new release) are started to replace them - preserving the existing dyno formation.*
+
+*Config vars contain customizable configuration data that can be changed independently of your source code. The configuration is exposed to a running application via environment variables. CAN ADD VIA CLI OR DASHBOARD*
+
+*Releases are an append-only ledger of slugs and config vars. Can rollback. Whether you change slug or config vars it will create a new release*
+
+
+*The dyno manager of the Heroku platform is responsible for managing dynos across all applications running on Heroku. This dyno cycling happens transparently and automatically on a regular basis, and is logged. Applications that use the free dyno type will sleep. When a sleeping application receives HTTP traffic, it will be awakened - causing a delay of a few seconds. Using one of the other dyno types will avoid sleeping. Can run IO through bash to schedule things.*
+
+*Each dyno gets its own ephemeral filesystem - with a fresh copy of the most recent release. It can be used as temporary scratchpad, but changes to the filesystem are not reflected to other dynos.*
+
+*Add-ons are third party, specialized, value-added cloud services that can be easily attached to an application, extending its functionality.*
+
+*Releases are an append-only ledger of slugs, config vars and add-ons. Heroku maintains an append-only ledger of releases you make.*
+
+*Terminology: Logplex automatically collates log entries from all the running dynos of your app, as well as other components such as the routers, providing a single source of activity.*
+
+*To scale web traffic scale web dynos*
+
+
 ### Heroku - Running a Database in the Cloud (SAQ 6 & 7) 
 *6. Identify the database to be used in your App and provide a justification for your choice.*
 *7. Identify and describe the production database setup (i.e. postgres instance).*
 
-
+The database that we use for storing our web applications is PostgreSQL, open-source. Heroku runs own instance of DB.
 
 ### Instructions for App Use
 HOW DOES A USER USE THE SITE
@@ -121,10 +151,16 @@ Design choices // Accessability // Usability // Performance // Challenges (Shoul
 *8. Describe the architecture of your App.*
 *9. Explain the different high-level components (abstractions) in your App.*
 
+Use MVC model
+
+High level = Users are all buyers. Some are sellers. Admins are another role like sellers.
+
 ### Database Design (SAQ 11-13)
 *11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).*
 *12. Discuss the database relations to be implemented.*
 *13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.*
+
+Etsy & Ebay utilise similar high-level structure
 
 - *User Model*
     - devise  
@@ -150,15 +186,18 @@ TDD and how that SHOULD influence design and code building from the ground up.
 
 Unfortunately due to assessment deadlines we only really managed to reach MVP. In future iterations we would still like to implement:
 
+- **Build and run tests.**
 - Multi-page display for products with the ability to limit how many are on the page at once via a dropdown menu. Currently the products page just shows all current products stored in the database. This only works on a very small-scale such as our test environment. Load times would become huge with even a small-business scale database.
 - Product category selection being a dropdown, and a set of categories defined by us as the developers, rather than users being asked describe the category of their product. 
 - Learn and implement how to re-use User IDs after they have been destroyed, and properly remove them from the User table in the database. Currently destroyed users will still have an empty entry in the User Administrator Panel.
-- Multi-image upload for a single product, allowing 
-- search bar on home page, 
-- unique names validation so no two users or stores can have the same name (admins can accidentally delete the wrong user), 
-- MFA, 
-- Would like to have implemented imagemagick.
-- Alt image tag all of the images uploaded for user products
+- Multi-image upload for a single product, allowing users to have a slideshow of images for their product on the product show page.
+- We had trouble getting the search bar working on the home page. Would like to fix this up.
+- Alter the database so that both username and store name are unique & add a search feature to the admin panels. This would make it easier for admins to identify a particular user/store they were looking for in the admin panel.
+- Multi-factor authentication for an even more secure user experience.
+- Implmentation of ImageMagick for image compression. Image size could become a big issue for performance without some sort of counter-measure such as ImageMagick.
+- Learn and implement alt tags on all of the images that are sourced in embedded Ruby. 
+- Implement alt text for all other img tags within the site's base HTML structure.
+- Enable guest checkout. Currently only users that are signed in can buy products.
 
 ## Planning Process
 ### Timeline
