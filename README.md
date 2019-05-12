@@ -220,7 +220,9 @@ These components were:
 
 **Etsy**
 
-Etsy while likely having very similar in terms of high-level components Etsy obviously operates on a much larger scale than us, and may implement their category system with a Model structure of its own with each product referencing a specific category and/or subcategory. I imagine this probably helps them with database responsiveness and data classification for look at user trends/metrics.
+Etsy while likely having very similar in terms of high-level components Etsy obviously operates on a much larger scale than us, and may implement their category system with a Model structure of its own with each product referencing a specific category and/or subcategory. I imagine this probably helps them with database responsiveness and data classification for look at user trends/metrics. It is clear that they also have Users, each who can but do not necessarily have to have a store, each of which can have many products. Their models likely have many more columns for each entry, as they store much more information such as user reviews, shipping options for product sales, etc.
+
+They also handle credit card information on site, so must have specific measures in place to carefully maintain this data in a safe and secure way.
 
 One comment I found on StackOverflow from someone claiming to be an Etsy system administator discussed using sharding. Sharding is the process of splitting data across lots of different database servers. They have another set of database servers dedicated solely to indexing, helping them find data on the shards.
 
@@ -453,21 +455,20 @@ While we understand that it is normal practice to delete feature branches after 
 *22. Discuss methods you will use to protect information and data.*  
 *23. Research what your legal obligations are in relation to handling user data.*
 
-If an application is anything more than an a piece of assessment/hobby creation i.e. has real end-users, a myriad of considerations must be made for information security. A developer must handle both their legal obligations  
+If an application is anything more than an a piece of assessment/hobby creation i.e. has real end-users, a myriad of considerations must be made for information security. A developer must handle both their legal obligations and user expectations. 
 
+A user can reasonably expected to remain anonymous and have their data retained without any fear of it leaking or being deleted by a malicious actor who gained was somehow able to escalate their user priviledge. With this in mind we should have employed more than one admin role, with different levels of priviledge. Currently anyone with access to the administrative role could effectively manually destroy all users (including other admins), products, and stores. Rolify was an important addition to help mantain the integrity of data, as without it a user who may have bypassed routing through something like Rails directory traversal CVE from 2018 could potentially edit other users data including their store or product information.
 
+Information security is something that must be taken completely seriously and so it was important for us to employ a specialised gem to handle user authentication i.e. Devise. Devise hashes each users password, which means even if someone had unauthorised access to our User database, they would not be able to see users plaintext passwords. 
 
+Using external third-party services raise an important topic applicable to many different frameworks, and that is validation of dependent software. More and more lately there have been instances of supply chain poisoning, such as Bootstrap last month, and CCleaner last year. These services provide a potentially huge vector of attack for black hat hackers. Supply chain poisoning is when a malicious actor gets access to a trusted third-party service's deployment server, and injects malicious code into their source code. I ensured that I checked the lastest security news around all of the third-party services we used before adding them to our gemfile. It's not possible for all small packages, but it can also be advisable to check the source code of anything small enough to look over, although this is more important at an enterprise level when bringing in new software to your tech stack.
 
-21/
-Only have one level of admin role. Dangerous as someone who gained control of an admin role could delete everything through admin panels.
+It would have been nice to implement multi-factor authentication as an additional layer of security. It is definitely something I would want to add to future iterations. I did not have time before the assessment deadline to investigate what was available in terms of Rails gems. This would prevent a lot of the credential spraying attacks that have become popular lately.
 
-Gem verificiation (supply chain poisoning)
+Handling credit card information remotely with Stripe creates far less of a headache for developers as no credit card information ever hits their server.
 
+Good controller/routes.rb routing is important to help to ensure that users cannot reach places that they are not supposed to have access to, but as mentioned before Rolify does help mitigate this in the event that this happens.
 
-22/
-Devise Rolify Good routing MFA Stripe
+The Australian Privacy Act of 1988 requires that websites post a privacy policy, and contain multiple privacy rights that users are entitled to such as, 'how data is collected, stored and with whom it can be disclosed.' Recently Australian legislation was passed that required companies have a method to grant federal agencies (provided they are granted access by a court) access to any encrypted information.
 
-
-
-23/
-GDPR // Australian encryption
+Any company that has European users must also abide by the General Data Protection Regulation in 2018, replacing Data Protection Directive. It is an extensive set of regulations but one of the primary tenants is that users must be able to have their data removed at their request.
