@@ -148,21 +148,51 @@ TDD and how that SHOULD influence design and code building from the ground up.
 
 ### Future Development
 
-Next page for products and limiting total products on products show page, rather than having to search or scroll through ALL products. Category being a dropdown rather than user chosen and implement sidebar allowing users to filter products by category. user_id reuse after deletion. Image slideshow. Destroyed elements still show in admin panel, search bar on home page, unique names validation so no two users or stores can have the same name, MFA
+Unfortunately due to assessment deadlines we only really managed to reach MVP. In future iterations we would still like to implement:
+
+- Multi-page display for products with the ability to limit how many are on the page at once via a dropdown menu. Currently the products page just shows all current products stored in the database. This only works on a very small-scale such as our test environment. Load times would become huge with even a small-business scale database.
+- Product category selection being a dropdown, and a set of categories defined by us as the developers, rather than users being asked describe the category of their product. 
+- Learn and implement how to re-use User IDs after they have been destroyed, and properly remove them from the User table in the database. Currently destroyed users will still have an empty entry in the User Administrator Panel.
+- Multi-image upload for a single product, allowing 
+- search bar on home page, 
+- unique names validation so no two users or stores can have the same name (admins can accidentally delete the wrong user), 
+- MFA, 
+- Would like to have implemented imagemagick.
+- Alt image tag all of the images uploaded for user products
 
 ## Planning Process
 ### Timeline
 
 - *Sprint 1 (29/04 > 01/05):*
+  - Planning phase:
+    - Application idea brainstorming
+    - User Stories
+    - ERD Design
+    - Wireframing
+  - Basic scaffolding
 
 - *Sprint 2 (02/05 > 04/05):* 
+  - Basic model and controller setup
+  - RSpec and Devise setup
+  - Nav and footer design
+  - Basic HTML outline for home page and products page
+  - Basic application styling
 
 - *05/05:* 
   - Dylan and I took a break over the weekend during the middle of the project
 
-- *Sprint 3 (06/05 > 08/05):*  
+- *Sprint 3 (06/05 > 08/05):*
+  - Image upload
+  - Editting of individual store and user profile information
+  - Creating user flow for editting and viewing of pages
+  - Controller based restrictions for those not logged in
+  - Controller based restrictions on those signed in so they could not edit anyone's information other than their own  
 
 - *Sprint 4 (09/05 > 11/05):*
+  - Worked on getting cart functioning and allowing users to edit it
+  - Began integrating Stripe with our website allowing users to buy products
+  - Added Rolify and designed User and Store admin pages
+  - Gave admins the ability to destroy stores and user accounts for the use case of inappropriate content in their stores. Did not allow them to edit profiles.
 
 - *Submission Day (12/05):* 
   - Finalised project structure for assignment submission
@@ -184,7 +214,9 @@ From here we went on to create our User Stories, which then gave us the floorpla
 
 ![picture](docs/Entity-Relationship-Diagram.png)
 
-TALK ABOUT ACTIVE STORAGE (available in 5.2)
+Did not need to store images locally except those that were used for backgrounds etc. 
+
+Even these maybe should've been uploaded to the cloud for faster load. 
 
 ### User Stories (SAQ 15)
 *15. Provide User stories for your App.*
