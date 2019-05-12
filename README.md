@@ -3,12 +3,13 @@
 [App Link (Heroku)](https://www.heroku.com/carnivorous-raisin-4432)  
 [Github Repo Link](https://github.com/Dylan-Speight/definitely_not_etsy/)
 
-
+# Table of Contents
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 - [Ruby on Rails Web App Project: Itzy](#ruby-on-rails-web-app-project-itzy)
+- [Table of Contents](#table-of-contents)
   - [Project Description](#project-description)
     - [Problem Definition & Purpose](#problem-definition--purpose)
     - [Functionality & Features](#functionality--features)
@@ -43,6 +44,8 @@
     - [22. Research what your legal obligations are in relation to handling user data.](#22-research-what-your-legal-obligations-are-in-relation-to-handling-user-data)
 
 <!-- /code_chunk_output -->
+
+
 
 ## Project Description
 ### Problem Definition & Purpose
@@ -83,6 +86,8 @@ We used Ruby on Rails (RoR) as the framework for this application's development.
 *Rolify* - User authorisation. Allows user role creation, and resource access allocation depending on user role id e.g. only admins can access user admin panel where account removal functionality resides.
 
 *Dotenv* - Environment variable creation for development. Loads a .env file during rails server initialisation that holds sensitive information such as database passwords and API keys/secrets.
+
+*RSpec* - 
 
 *Cloudinary* - Cloud-based image and video management platform. Uploaded images are delivered through their personal CDN, allowing fast media load times regardless of user geolocation.
 
