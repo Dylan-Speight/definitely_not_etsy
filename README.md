@@ -16,7 +16,7 @@
     - [Site Screenshots](#site-screenshots)
     - [Tech Stack Rundown (SAQ 5 & 10)](#tech-stack-rundown-saq-5--10)
     - [Heroku - What Is It? (SAQ 4)](#heroku---what-is-it-saq-4)
-    - [Heroku - Running a Database in the Cloud (SAQ 6 & 7)](#heroku---running-a-database-in-the-cloud-saq-6--7)
+    - [Heroku - Running a Database in the Cloud & DBMS Selection (SAQ 6 & 7)](#heroku---running-a-database-in-the-cloud--dbms-selection-saq-6--7)
     - [Instructions for App Use](#instructions-for-app-use)
   - [Design Documentation](#design-documentation)
     - [Design Process](#design-process)
@@ -105,38 +105,36 @@ Heroku enables source control by acting as a Git remote repository. We are able 
 
 `$ git push heroku master`
 
-Here Heroku will 
+The build mechanism Heroku runs when deploying web applications is different based on the language of the application. In the instance of RoR, will load the source code, retrieve the dependencies from the Gemfile, and generate any necessary files from the asset pipeline (a RoR framework compress and minify JavaScript, CSS, and image assets). This build mechanism assembles these components and generates what is known as a 'slug' - a pack of ready to run code with the instructions to run it. 
 
-*The build mechanism is typically language specific, but follows the same pattern, typically retrieving the specified dependencies, and creating any necessary assets (whether as simple as processing style sheets or as complex as compiling code). For example, when the build system receives a Rails application, it may fetch all the dependencies specified in the Gemfile, as well as generate files based on the asset pipeline. Output are assembled into a slug.*
+The slug contains a few other bits and pieces as well. These are the config variables and add-ons. Config variables (Heroku's .env file) are independent configurations that sit outside of the application source code, that contain sensitive information such as API secrets/passwords/keys and database passwords. These can be altered at any given point via the Command Line Interface or the application dashboard on the Heroku website. An add-on is a third-party cloud service that provides additional functionality to your build with easy integration. Our application did not use any add-ons. 
 
-*Think of a running dyno as a lightweight, secure, virtualized Unix container that contains your application slug in its file system. Your application’s dyno formation is the total number of currently-executing dynos, divided between the various process types you have scaled. When you deploy a new version of an application, all of the currently executing dynos are killed, and new ones (with the new release) are started to replace them - preserving the existing dyno formation.*
+Heroku enables easy build rollback through the implementation of build releases. A release is a combination of the the buildpack slug and the config variables. Whenever either is altered a new release is produced. A developer can at any time rollback their deployment to a previous release.
 
-*Config vars contain customizable configuration data that can be changed independently of your source code. The configuration is exposed to a running application via environment variables. CAN ADD VIA CLI OR DASHBOARD*
+Once the slug has been built it is deployed to a 'lightwight, secure, virtual Unix container'. Think of this as a miniature file-system with your slug loaded on to it, that provides the production environment needed for our web application to actually run.
 
-*Releases are an append-only ledger of slugs and config vars. Can rollback. Whether you change slug or config vars it will create a new release*
+Dynos can run various different web and queue processes required by our web application, and allow a scalar approach to deployment, each with its own copy of your applications slug. New releases are always deployed to new dynos, preserving the formation of the previous releases' dynos, and killing the previously executing dynos.
 
+Our web application runs on a free dyno which will sleep after periods of inactivity. It will be awakened by any incoming HTTP traffic, after a short delay. This suits an assessment style web deployment, but a real web application with regular end users would require another non-free dyno type.
 
-*The dyno manager of the Heroku platform is responsible for managing dynos across all applications running on Heroku. This dyno cycling happens transparently and automatically on a regular basis, and is logged. Applications that use the free dyno type will sleep. When a sleeping application receives HTTP traffic, it will be awakened - causing a delay of a few seconds. Using one of the other dyno types will avoid sleeping. Can run IO through bash to schedule things.*
+Small one-off dynos can run for simple input/output operations. This is useful for tasks such as running a shell linked to your web application, allowing you to execute temporary non-destructive/transformative commands such as accessing the console i.e. changes made on one of these IO dynos won't be reflected on your other dynos.
 
-*Each dyno gets its own ephemeral filesystem - with a fresh copy of the most recent release. It can be used as temporary scratchpad, but changes to the filesystem are not reflected to other dynos.*
+Dynamic scaling of dynos accomodate for the scaling needs of web applications e.g. increased web traffic as an application's user base grows.
 
-*Add-ons are third party, specialized, value-added cloud services that can be easily attached to an application, extending its functionality.*
+Heroku also takes logs from all of the running dynos for your web application, through the Logplex, allowing developers access to information that may help in the debugging process, when having deployment or runtime issues.
 
-*Releases are an append-only ledger of slugs, config vars and add-ons. Heroku maintains an append-only ledger of releases you make.*
-
-*Terminology: Logplex automatically collates log entries from all the running dynos of your app, as well as other components such as the routers, providing a single source of activity.*
-
-*To scale web traffic scale web dynos*
-
-
-### Heroku - Running a Database in the Cloud (SAQ 6 & 7) 
+### Heroku - Running a Database in the Cloud & DBMS Selection (SAQ 6 & 7) 
 *6. Identify the database to be used in your App and provide a justification for your choice.*
 *7. Identify and describe the production database setup (i.e. postgres instance).*
 
-The database that we use for storing our web applications is PostgreSQL, open-source. Heroku runs own instance of DB.
+While there appears to be much debate across the web as to what database management solutions (DBMS) are the 'best' I think the more appropriate question is what is the most appropriate DBMS for our application. RoR is relatively DBMS agnostic, allowing the developer to select what they deem appropriate from the wide selection available to them.
+
+PostgreSQL was our choice of DBMS. It is an open-source
 
 ### Instructions for App Use
 HOW DOES A USER USE THE SITE
+
+If you want to contribute please first fork the repo.
 
 How would a user clone our repo an get it working if they wanted to help contribute
 
@@ -174,13 +172,45 @@ Etsy & Ebay utilise similar high-level structure
         - A store must belong to a user. For a entry to be created in the Store table, it must reference a user_id. This means a person visiting the site cannot create a store without first creating a regular user account. This provides a layer of authentication and prevents stores from easily being spam created.
     - has_many :products
         - A store can have many products. This relationship is relatively self-explanatory. Any store should be able to stock many different items. Any other relationship would not really make sense here.
+- *Product Model*
+- *Order Model*
+- *ProductOrder Model*
 
 ### Test Driven Development (SAQ 20)
 *20. Provide an overview and description of your Testing process.*
 
-Rspec logger file. What we would have done if time permitted.
 
-TDD and how that SHOULD influence design and code building from the ground up.
+DESCRIBE TDD
+
+
+
+I created a RSpec shell script that when called from the RSpec folder with an appropriate test file path would run the file, print the output to terminal and also tee the output to a rspec.log file. This would allow us to easily collate the results of our testing process. The script was simple, so I've included it as a code block below:
+
+```
+if [ -z $1 ]; then
+    echo Filepath not found, please use the correct format: ./rspec-logger-2.sh yourfilepath
+    exit
+fi
+
+rspec $1 2>/dev/null | tee -a ./rspec.log
+```
+I also added some config settings to maintain the nicely coloured and formatted output rspec -f d prints to STDOUT:
+
+```
+RSpec.configure do |config|
+    # Use color in STDOUT
+    config.color = true
+
+    # Use color not only in STDOUT but also in pagers and files
+    config.tty = true
+  
+    # Use the specified formatter
+    config.formatter = :documentation # :progress, :html,
+                                      # :json, CustomFormatterClass
+end 
+```
+
+Unfortunately due to time constraints and not employing TDD from the beginning we actually didn't even get to use either RSpec or this helper logging script. For us this was definitely the biggest regret we both had. It is clear that there are significant benefits to employing TDD, but without planning with it in mind from the we quickly fell into the trap of feeling as though we didn't have time to go back and retrospectively develop tests that accurately reflected the outcomes we wanted in our development. This is something that will be in the forefront of my mind going into our next project.
 
 ### Future Development
 
