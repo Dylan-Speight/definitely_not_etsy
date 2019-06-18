@@ -1,6 +1,6 @@
 # Ruby on Rails Web App Project: Itzy
 
-[App Link (Heroku)](https://www.heroku.com/carnivorous-raisin-4432)  
+[App Link (Heroku)](https://carnivorous-raisin-4432.herokuapp.com)  
 [Github Repo Link](https://github.com/Dylan-Speight/definitely_not_etsy/)
 
 # Table of Contents
